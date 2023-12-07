@@ -8,11 +8,7 @@ const Nav = () => {
       <div className="nav-container">
         <div className="logo">Petstagram</div>
         <div className="logo-image">
-          <img
-            src="src/components/images/pets.png"
-            alt="pets-logo"
-            className="logo-image"
-          />
+          <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
         <ul className="nav-links">
           <li>
