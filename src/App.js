@@ -6,6 +6,9 @@ import Feed from "./screens/feed/feed.jsx";
 import "./App.css";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+  const [curatedPosts, setCuratedPosts] = useState([]);
+
   return (
     <div>
       {/* <p>Heyyyyyy</p> */}
