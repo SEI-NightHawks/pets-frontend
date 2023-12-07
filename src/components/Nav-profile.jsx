@@ -1,19 +1,19 @@
 import React from "react";
-import "./Nav-create-acc.css";
+import "./Nav-profile.css";
+import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const NavProfile = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="logo">Petstagram</div>
+        <div className="profile-namee">June</div>
+        <div className="gender">(girl)</div>
         <div className="logo-image">
           <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/feed">Feed</NavLink>
       </div>
     </nav>
   );
 };
 
-export default Nav;
+export default NavProfile;

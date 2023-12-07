@@ -1,19 +1,26 @@
 import React from "react";
-import "./Nav-create-acc.css";
+import "./Nav-feed.css";
+import { FaSearch, FaUser, FaEnvelope } from "react-icons/fa";
 
-const Nav = () => {
+const NavFeed = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="logo">Petstagram</div>
-        <div className="logo-image">
+        <div className="search-loop">
+          <FaSearch className="icon" />
+        </div>
+        <div className="logo-image-feed">
           <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/modal">Modal</NavLink>
+        <div className="profile-icon">
+          <FaUser className="icon" />
+        </div>
+        <div className="envelope-icon">
+          <FaEnvelope className="icon" />
+        </div>
       </div>
     </nav>
   );
 };
 
-export default Nav;
+export default NavFeed;
