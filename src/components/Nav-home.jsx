@@ -39,7 +39,7 @@ const Nav = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <NavLink to="/">Log In</NavLink>
+            <NavLink to="/login">Log In</NavLink>
           </li>
           <li>
             <NavLink to="/feed">Feed</NavLink>

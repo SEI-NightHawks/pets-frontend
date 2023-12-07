@@ -24,15 +24,15 @@
 
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Nav from "./Nav";
-import NavLogin from "./Nav-login";
-import NavSignup from "./Nav-signup";
-import NavCreateProfile from "./Nav-create-profile";
-import NavFeed from "./Nav-feed";
-import Modal from "./Modal";
-import NavProfile from "./Nav-profile";
-import NavPersonalProfile from "./Nav-personal-profile";
-import NavUpload from "./Nav-upload";
+import Nav from "./components/Nav";
+import NavLogin from "./components/Nav-login";
+import NavSignup from "./components/Nav-signup";
+import NavCreateProfile from "./components/Nav-create-profile";
+import NavFeed from "./components/Nav-feed";
+import Modal from "./components/Modal";
+import NavProfile from "./components/Nav-profile";
+import NavPersonalProfile from "./components/Nav-personal-profile";
+import NavUpload from "./components/Nav-upload";
 
 const App = () => {
   return (
