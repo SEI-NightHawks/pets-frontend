@@ -16,15 +16,6 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.logo {
-  font-size: 35px;
-}
-
 .logo-image {
-  width: 95px;
+  margin: 0 auto;
 }

@@ -37,8 +37,9 @@
 }
 
 .logo {
-  font-size: 35px;
+  font-size: 45px;
   margin-left: 30px;
+  font-weight: bold;
 }
 
 .logo-image {

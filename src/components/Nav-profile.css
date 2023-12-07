@@ -16,25 +16,19 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
+.pet-name {
+  font-size: 40px;
+  margin-left: 40px;
 }
 
-.logo {
-  font-size: 35px;
+.pet-gender {
+  margin-left: 15px;
 }
 
-/* .logo-image {
-  width: 95px;
-  margin-right: 680px;
-} */
-
-.gender {
-  margin-left: 10px;
+.profile-icon {
+  margin-right: 90px;
 }
 
-.profile-namee {
-  margin-left: 20px;
-  font-size: 50px;
+.logo-image {
+  margin-left: 250px;
 }
