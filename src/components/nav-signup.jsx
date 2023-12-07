@@ -1,5 +1,5 @@
 import React from "react";
-import "./Nav-create-acc.css";
+import "./Nav-signup.css";
 
 const Nav = () => {
   return (
@@ -10,7 +10,7 @@ const Nav = () => {
           <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/feed">Feed</NavLink>
+        <NavLink to="/create-profile">Sign Up</NavLink>
       </div>
     </nav>
   );

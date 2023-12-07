@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+// Nav-login.jsx
 import React from "react";
-import "./Nav.css";
+import "./Nav-login.css";
 
 const Nav = () => {
   return (
@@ -12,10 +12,10 @@ const Nav = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <a href="/">Log In</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <a href="/about">Sign Up</a>
+            <NavLink to="/feed">Feed</NavLink>
           </li>
         </ul>
       </div>

@@ -10,7 +10,7 @@ const Nav = () => {
           <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/feed">Feed</NavLink>
+        <NavLink to="/modal">Modal</NavLink>
       </div>
     </nav>
   );
