@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Post.css";
 import Heart from "react-animated-heart";
+import Comment from "../Comment";
 
 function Post({ post }) {
   const [isLiked, setIsLiked] = useState(false);
@@ -27,6 +28,7 @@ function Post({ post }) {
       <img className="post-image" src={post.image_url} alt={post.Name} />
       <div className="post-socials">
         <Heart isClick={isLiked} onClick={handleLike} />
+        <Comment />
       </div>
     </div>
   );
