@@ -9,7 +9,7 @@ const NavFeed = () => {
         <div className="search-loop">
           <FaSearch className="icon" />
         </div>
-        <div className="logo-image-feed">
+        <div className="logo-image">
           <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
         <div className="profile-icon">
