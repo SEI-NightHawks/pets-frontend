@@ -1,13 +1,33 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./Post.css";
+import Heart from "react-animated-heart";
 
 function Post({ post }) {
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLike = async () => {
+    try {
+      if (isLiked) {
+        // await unlikePost(post.id);
+        setIsLiked(false);
+        console.log(`${post.Name} was unliked`);
+      } else {
+        // await likePost(post.id);
+        setIsLiked(true);
+        console.log(`${post.Name} was liked`);
+      }
+    } catch (error) {
+      console.error("Error toggling like:", error);
+    }
+  };
+
   return (
     <div className="post-container">
       <h2>{post.Name}</h2>
-      {/* <Link to={`/${post._id}`}> */}
       <img className="post-image" src={post.image_url} alt={post.Name} />
-      {/* </Link> */}
+      <div className="post-socials">
+        <Heart isClick={isLiked} onClick={handleLike} />
+      </div>
     </div>
   );
 }
