@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { getPosts } from "./services/posts.js";
 import Nav from "./components/Nav.jsx";
 import Home from "./screens/home/home.jsx";
 import Feed from "./screens/feed/feed.jsx";
@@ -9,13 +10,21 @@ function App() {
   const [posts, setPosts] = useState([]);
   const [curatedPosts, setCuratedPosts] = useState([]);
 
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  async function fetchPosts() {
+    const allPosts = await getPosts();
+    setPosts(allPosts);
+  }
+
   return (
     <div>
-      {/* <p>Heyyyyyy</p> */}
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/feed" element={<Feed />} />
+        <Route path="/" element={<Home posts={posts} />} />
+        <Route path="/feed" element={<Feed posts={posts} />} />
       </Routes>
     </div>
   );

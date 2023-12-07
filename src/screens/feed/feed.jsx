@@ -1,9 +1,15 @@
+import Post from "../../components/Post/Post";
 import "./feed.css";
 
-function Feed() {
+function Feed({ posts }) {
   return (
     <div>
-      <p>This is the feed page</p>
+      <h1>This is the Feed page</h1>
+      <div>
+        {posts.map((post) => (
+          <Post post={post} />
+        ))}
+      </div>
     </div>
   );
 }

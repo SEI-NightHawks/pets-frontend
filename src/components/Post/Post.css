@@ -1,0 +1,11 @@
+.post-container {
+  height: 400px;
+  width: 300px;
+  margin: 20px;
+}
+
+.post-image {
+  height: 300px;
+  display: block;
+  margin: auto;
+}

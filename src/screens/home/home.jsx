@@ -1,9 +1,15 @@
+import Post from "../../components/Post/Post";
 import "./home.css";
 
-function Home() {
+function Home({ posts }) {
   return (
     <div>
-      <p>This is the Home page</p>
+      <h1>This is the Home page</h1>
+      <div>
+        {posts.map((post) => (
+          <Post post={post} />
+        ))}
+      </div>
     </div>
   );
 }
