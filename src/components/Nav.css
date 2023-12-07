@@ -4,18 +4,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* .nav-title {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: white;
-  text-align: center;
-  background-color: #0089ad;
-  height: 80px;
-  font-size: 50px;
-  padding-top: 20px;
-  font-weight: bold;
-} */
-
 .navbar {
   background-color: #0089ad;
   color: #fff;
@@ -28,10 +16,10 @@
   align-items: center;
 }
 
-.logo {
+/* .logo {
   font-size: 1.5em;
   font-weight: bold;
-}
+} */
 
 .nav-links {
   list-style: none;
@@ -39,7 +27,7 @@
 }
 
 .nav-links li {
-  margin-right: 15px;
+  margin-right: 35px;
 }
 
 .nav-links a {
@@ -49,4 +37,8 @@
 
 .logo {
   font-size: 35px;
+}
+
+.logo-image {
+  width: 65px;
 }
