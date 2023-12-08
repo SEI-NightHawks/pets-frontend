@@ -12,20 +12,17 @@ import NavUpload from "./components/Nav-upload.jsx";
 
 const App = () => {
   return (
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<Nav />} />
-    //     <Route path="/login" element={<NavLogin />} />
-    //     <Route path="/signup" element={<NavSignup />} />
-    //     <Route path="/create-profile" element={<NavCreateProfile />} />
-    //     <Route path="/feed" element={<NavFeed />} />
-    //     <Route path="/modal" element={<NavModal />} />
-    //     <Route path="/profile" element={<NavProfile />} />
-    //     <Route path="/personal-profile" element={<NavPersonalProfile />} />
-    //     <Route path="/upload" element={<NavUpload />} />
-    //   </Routes>
-    // </Router>
-    <NavUpload />
+    <Routes>
+      <Route path="/" element={<Nav />} />
+      <Route path="/login" element={<NavLogin />} />
+      <Route path="/signup" element={<NavSignup />} />
+      <Route path="/create-profile" element={<NavCreateProfile />} />
+      <Route path="/feed" element={<NavFeed />} />
+      <Route path="/modal" element={<NavModal />} />
+      <Route path="/profile" element={<NavProfile />} />
+      <Route path="/personal-profile" element={<NavPersonalProfile />} />
+      <Route path="/upload" element={<NavUpload />} />
+    </Routes>
   );
 };
 
