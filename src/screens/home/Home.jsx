@@ -1,4 +1,5 @@
 import Post from "../../components/Post/Post";
+import NavHome from "../../components/Nav-home.jsx";
 import "./home.css";
 
 function shuffleArray(array) {
@@ -15,6 +16,7 @@ function Home({ posts }) {
 
   return (
     <div>
+      <NavHome />
       <h1>This is the Home page</h1>
       <div>
         {shuffledPosts.map((post) => (

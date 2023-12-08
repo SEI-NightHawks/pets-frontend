@@ -16,29 +16,15 @@
   align-items: center;
 }
 
-/* .logo {
-  font-size: 1.5em;
-  font-weight: bold;
-} */
-
-.nav-links {
-  list-style: none;
-  display: flex;
+.gender {
+  margin-left: 10px;
 }
 
-.nav-links li {
-  margin-right: 35px;
+.profile-namee {
+  margin-left: 20px;
+  font-size: 50px;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.logo {
-  font-size: 35px;
-}
-
-.logo-image {
-  width: 95px;
+.search-loop {
+  margin-right: 70px;
 }

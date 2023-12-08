@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background-color: #0089ad;
+  color: #fff;
+  padding: 10px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pet-name {
+  font-size: 40px;
+  margin-left: 40px;
+}
+
+.pet-gender {
+  margin-left: 15px;
+}
+
+.profile-icon {
+  margin-right: 90px;
+}
+
+.logo-image {
+  margin-left: 250px;
+}
