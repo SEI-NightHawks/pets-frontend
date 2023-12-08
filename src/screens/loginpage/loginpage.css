@@ -1,0 +1,60 @@
+/* LoginPage.css */
+
+/* Container styling */
+div {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Label styling */
+  label {
+    margin-bottom: 8px;
+  }
+  
+  /* Input field styling */
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Link styling */
+  a {
+    text-decoration: none;
+    color: #2196f3;
+    cursor: pointer;
+  }
+  
+  /* Link hover effect */
+  a:hover {
+    color: #0d47a1;
+  }
+  
