@@ -1,8 +1,5 @@
-
-// Signup.jsx
-
 import React, { useState } from 'react';
-import './signup.css'; // Import the CSS file
+import './signup.css';
 
 const Signup = () => {
   const [petUsername, setPetUsername] = useState('');

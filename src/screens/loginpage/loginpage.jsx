@@ -1,18 +1,14 @@
 import "./loginpage.css";
-
-// LoginPage.jsx
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for React Router
+import { Link } from 'react-router-dom'; 
 
 const LoginPage = ({ closeModal }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Handle login logic here
+    // Handle login auth logic here
     console.log('Logging in with:', username, password);
-    closeModal(); // Close the modal after login
   };
 
   return (
