@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background-color: #0089ad;
+  color: #fff;
+  padding: 10px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gender {
+  margin-left: 10px;
+}
+
+.profile-namee {
+  margin-left: 20px;
+  font-size: 50px;
+}
+
+.search-loop {
+  margin-right: 70px;
+}
