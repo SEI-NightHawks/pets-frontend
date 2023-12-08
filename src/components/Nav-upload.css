@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background-color: #0089ad;
+  color: #fff;
+  padding: 10px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-image {
+  margin: 0 auto;
+}

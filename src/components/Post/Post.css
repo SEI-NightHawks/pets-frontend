@@ -1,0 +1,14 @@
+.post-container {
+  height: auto;
+  width: auto;
+  margin: 50px 100px;
+  border: solid 5px #444;
+  background-color: bisque;
+  border-radius: 50px;
+}
+
+.post-image {
+  height: 300px;
+  display: block;
+  margin: auto;
+}

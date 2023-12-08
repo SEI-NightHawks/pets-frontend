@@ -1,9 +1,18 @@
+import Post from "../../components/Post/Post";
+import NavFeed from "../../components/Nav-feed.jsx";
 import "./feed.css";
+import "../../components/Nav-feed.css";
 
-function Feed() {
+function Feed({ posts }) {
   return (
     <div>
-      <p>This is the feed page</p>
+      <NavFeed />
+      <h1>This is the Feed page</h1>
+      <div>
+        {posts.map((post) => (
+          <Post post={post} />
+        ))}
+      </div>
     </div>
   );
 }

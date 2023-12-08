@@ -1,19 +1,24 @@
 import React from "react";
-import "./Nav-create-acc.css";
+import { FaUser } from "react-icons/fa";
+import "./Nav-profile.css";
 
-const Nav = () => {
+const NavProfile = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="logo">Petstagram</div>
+        <div className="pet-info">
+          <span className="pet-name">June</span>
+          <span className="pet-gender">(girl)</span>{" "}
+        </div>
         <div className="logo-image">
           <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/feed">Feed</NavLink>
+        <div className="profile-icon">
+          <FaUser className="icon" />
+        </div>
       </div>
     </nav>
   );
 };
 
-export default Nav;
+export default NavProfile;

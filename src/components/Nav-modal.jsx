@@ -1,8 +1,8 @@
 import React from "react";
-import "./Nav-feed.css";
+import "./Nav-modal.css";
 import { FaSearch, FaUser, FaEnvelope } from "react-icons/fa";
 
-const NavFeed = () => {
+const NavModal = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
@@ -23,4 +23,4 @@ const NavFeed = () => {
   );
 };
 
-export default NavFeed;
+export default NavModal;

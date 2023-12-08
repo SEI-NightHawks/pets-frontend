@@ -21,25 +21,7 @@
   font-weight: bold;
 }
 
-/* .nav-links {
-  list-style: none;
-  display: flex;
-  font-weight: bold;
-} */
-
-/* .nav-links li {
-  margin-right: 35px;
-} */
-
-/* .nav-links a {
-  text-decoration: none;
-  color: #fff;
-} */
-
-.logo {
-  font-size: 35px;
-}
-
 .logo-image {
   width: 95px;
+  margin: 0 auto;
 }
