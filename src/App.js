@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { getPosts } from "./services/posts.js";
 import Home from "./screens/home/Home.jsx";
-import Feed from "./screens/feed/feed.jsx";
+import Feed from "./screens/feed/Feed.jsx";
 import Nav from "./components/Nav-home.jsx";
 import NavLogin from "./components/Nav-login.jsx";
 import NavSignup from "./components/Nav-signup.jsx";

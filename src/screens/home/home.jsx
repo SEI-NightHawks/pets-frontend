@@ -1,4 +1,4 @@
-import Post from "../../components/Post/Post";
+import Post from "../../components/Post/Post.jsx";
 import NavHome from "../../components/Nav-home.jsx";
 import "./home.css";
 
