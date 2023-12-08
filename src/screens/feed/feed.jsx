@@ -1,4 +1,4 @@
-import Post from "../../components/Post/Post";
+import Post from "../../components/Post/Post.jsx";
 import NavFeed from "../../components/Nav-feed.jsx";
 import "./feed.css";
 import "../../components/Nav-feed.css";
