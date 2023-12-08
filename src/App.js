@@ -25,7 +25,7 @@ const App = () => {
     //     <Route path="/upload" element={<NavUpload />} />
     //   </Routes>
     // </Router>
-    <Nav />
+    <NavUpload />
   );
 };
 
