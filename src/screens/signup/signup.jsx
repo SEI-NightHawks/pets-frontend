@@ -60,17 +60,10 @@ const Signup = () => {
 
         <label>
           Breed:
-          <select
-            value={breed}
-            onChange={(e) => setBreed(e.target.value)}
-          >
-            <option value="">Select Breed</option>
-            {breedOptions.map((breedOption) => (
-         <option key={breedOption} value={breedOption}>
-             {breedOption}
-         </option>
-            ))}
-          </select>
+          <input
+          type="text"
+          value={breed}
+          onChangeCapture={(e) => setBreed(e.target.value)} />
         </label>
 
         <label>
