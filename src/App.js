@@ -13,7 +13,7 @@ import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
-
+//im
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [curatedPosts, setCuratedPosts] = useState([]);
