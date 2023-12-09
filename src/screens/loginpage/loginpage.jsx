@@ -1,6 +1,8 @@
-import "./loginpage.css";
+// import "./loginpage.css";
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; 
+
+//add class name sto this jsx and then change them again in the css
 
 const LoginPage = ({ closeModal }) => {
   const [username, setUsername] = useState('');
@@ -12,12 +14,12 @@ const LoginPage = ({ closeModal }) => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Login</h2>
       <form>
-        <label>
+        <label className='user-label'>
           Username:
-          <input
+          <input className='input-user'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -33,7 +35,7 @@ const LoginPage = ({ closeModal }) => {
           />
         </label>
         <br />
-        <button type="button" onClick={handleLogin}>
+        <button className="signup-button" type="button" onClick={handleLogin}>
           Login
         </button>
         <br />

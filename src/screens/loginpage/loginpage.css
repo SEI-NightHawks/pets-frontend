@@ -1,6 +1,6 @@
 
 /* Container styling */
-div {
+login-container {
     max-width: 300px;
     margin: 0 auto;
     padding: 20px;
@@ -16,12 +16,12 @@ div {
   }
   
   /* Label styling */
-  label {
+  user-label {
     margin-bottom: 8px;
   }
   
   /* Input field styling */
-  input {
+  input-user {
     width: 100%;
     padding: 8px;
     margin-bottom: 12px;
@@ -31,7 +31,7 @@ div {
   }
   
   /* Button styling */
-  button {
+  signup-button {
     background-color: #4caf50;
     color: white;
     border: none;
