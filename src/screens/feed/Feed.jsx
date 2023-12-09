@@ -9,7 +9,7 @@ function Feed({ posts }) {
       <NavFeed />
       <h1>This is the Feed page</h1>
       <div>
-        {posts.map((post) => (
+        {posts.map(post => (
           <Post post={post} />
         ))}
       </div>
