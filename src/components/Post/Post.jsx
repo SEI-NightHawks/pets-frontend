@@ -3,8 +3,18 @@ import "./Post.css";
 import Heart from "react-animated-heart";
 import Comment from "../Comment";
 
-function Post({ post }) {
+function Post({ post, pets }) {
   const [isLiked, setIsLiked] = useState(false);
+
+  let petName = "";
+  let petProfilePic = "";
+
+  pets.forEach((pet) => {
+    if (pet.id === post.pet) {
+      petName = pet.name;
+      petProfilePic = pet.profile_img;
+    }
+  });
 
   const handleLike = async () => {
     try {
@@ -24,7 +34,10 @@ function Post({ post }) {
 
   return (
     <div className="post-container">
-      <h2>{post.Name}</h2>
+      <div className="post-header">
+        <img className="post-profile-pic" src={petProfilePic} alt={petName} />
+        <h1>{petName}</h1>
+      </div>
       <img className="post-image" src={post.post_image} alt={post.pet} />
       <p>{post.content}</p>
       <div className="post-socials">
