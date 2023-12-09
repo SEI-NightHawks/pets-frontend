@@ -19,9 +19,9 @@ const Signup = () => {
     <div className="signup-container">
       <h2>Sign Up</h2>
       <form>
-        <label>
+        <label className='signup-label'>
           Pet Username:
-          <input
+          <input className='pet-user'
             type="text"
             value={petUsername}
             onChange={(e) => setPetUsername(e.target.value)}
