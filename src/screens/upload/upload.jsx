@@ -19,70 +19,78 @@ function Upload() {
   };
 
   const uploadImage = () => {
+    // Perform the upload based on the URL (you may need to adjust this logic)
     if (image) {
+      // For simplicity, set progress bar to 100% immediately
       setProgressBar(100);
-
+      // Set the image state with the URL
+      // This assumes that 'image' is a valid URL
+      // If it's a file, you should handle it differently
       setImage(image);
     }
   };
 
   const handlePost = () => {
+    // Call uploadImage to handle the image upload
     uploadImage();
-
+    // Set the caption state
     setCaption(comment);
   };
 
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-        <div className="bg-white p-5 rounded w-50">
-          <h2 className="text-center mb-4">Upload Image</h2>
-          <input
-            type="text"
-            className="form-control mb-4"
-            placeholder="Paste image URL"
-            onChange={handleUrl}
-          />
-          <div className="progress">
-            <div
-              className="progress-bar progress-bar-striped progress-bar-animated"
-              role="progressbar"
-              aria-label="progressbar"
-              aria-valuenow={progressBar}
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style={{ width: `${progressBar}%` }}
-            ></div>
-          </div>
-          <br />
-          {image && (
-            <img src={image} className="w-100 h-auto mt-4" alt="Uploaded" />
-          )}
-          <br />
-          <input
-            type="text"
-            className="form-control mt-4"
-            placeholder="Caption"
-            onChange={handleComment}
-          />
-          <button
-            className="btn btn-primary mt-4"
-            style={{
-              borderRadius: "20px",
-              backgroundColor: "#0089AD",
-              color: "#EAE0D7",
-              width: "640px",
-              border: "none",
-            }}
-            onClick={handlePost}
-          >
-            Post
-          </button>
-          {caption && (
-            <div className="mt-4">
-              <strong>Caption:</strong> {caption}
+      <div>
+        <NavUpload />
+        <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+          <div className="bg-white p-5 rounded w-50">
+            <h2 className="text-center mb-4">Upload Image</h2>
+            <input
+              type="text"
+              className="form-control mb-4"
+              placeholder="Paste image URL"
+              onChange={handleUrl}
+            />
+            <div className="progress">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-label="progressbar"
+                aria-valuenow={progressBar}
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: `${progressBar}%` }}
+              ></div>
             </div>
-          )}
+            <br />
+            {image && (
+              <img src={image} className="w-100 h-auto mt-4" alt="Uploaded" />
+            )}
+            <br />
+            <input
+              type="text"
+              className="form-control mt-4"
+              placeholder="Caption"
+              onChange={handleComment}
+            />
+            <button
+              className="btn btn-primary mt-4"
+              style={{
+                borderRadius: "20px",
+                backgroundColor: "#0089AD",
+                color: "#EAE0D7",
+                width: "640px",
+                border: "none",
+              }}
+              onClick={handlePost}
+            >
+              Post
+            </button>
+            {caption && (
+              <div className="mt-4">
+                <strong>Caption:</strong> {caption}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>
