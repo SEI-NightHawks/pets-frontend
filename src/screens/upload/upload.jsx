@@ -1,35 +1,51 @@
-import "./upload.css";
-import NavUpload from "../../components/Nav-upload.jsx";
 import React, { useState } from "react";
 import axios from "axios";
+import "./upload.css";
+import NavUpload from "../../components/Nav-upload.jsx";
 
 function Upload() {
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("");
   const [progressBar, setProgressBar] = useState(0);
 
-  const handleFile = (event) => {
-    const file = event.target.files[0];
-    const formData = new FormData();
+  const handleUrl = (event) => {
+    const url = event.target.value;
+    setImage(url);
 
-    setImage(URL.createObjectURL(file));
-    formdata.append("file", file);
+    // Perform the upload based on the URL (you may need to adjust this logic)
+    if (url) {
+      const formData = new FormData();
+      formData.append("file", url);
+
+      uploadImage(formData);
+    }
+  };
+
+  const uploadImage = (formData) => {
     axios
-      .post("url", formdata, {
+      .post("YOUR_UPLOAD_ENDPOINT", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
         onUploadProgress: (event) => {
-          setProgressBar(Math.round(100 * event.loaded) / event.total);
+          setProgressBar(Math.round((100 * event.loaded) / event.total));
         },
       })
-      .then((res) => setImage(URL.createObjectURL(file)))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        // Handle successful upload, if needed
+        console.log("File uploaded successfully:", res.data);
+      })
+      .catch((err) => {
+        console.error("Error uploading file:", err);
+      });
   };
+
   return (
     <div className="d-flex justify-content-center vh-100 bg-dark">
-      <NavUpload />
       <div className="bg-white p-5 rounded w-50 vh-80">
-        <input type="file" onChange={handleFile} />
+        {/* Remove the file input */}
+        {/* <input type="file" onChange={handleFile} />
+        <br /> <br /> */}
+        <input type="text" placeholder="Paste image URL" onChange={handleUrl} />
         <br /> <br />
         <div className="progress">
           <div
@@ -43,7 +59,7 @@ function Upload() {
           ></div>
         </div>
         <br />
-        {image && <img src={image} className="w-75 h-75"></img>}
+        {image && <img src={image} className="w-75 h-75" alt="Uploaded" />}
       </div>
     </div>
   );
