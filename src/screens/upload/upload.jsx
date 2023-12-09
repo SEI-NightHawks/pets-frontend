@@ -36,7 +36,6 @@ function Upload() {
     <>
       <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
         <div className="bg-white p-5 rounded w-50">
-          <NavUpload />
           <h2 className="text-center mb-4">Upload Image</h2>
           <input
             type="text"
