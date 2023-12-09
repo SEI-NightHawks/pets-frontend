@@ -11,11 +11,11 @@ function Post({ post }) {
       if (isLiked) {
         // await unlikePost(post.id);
         setIsLiked(false);
-        console.log(`${post.Name} was unliked`);
+        console.log(`${post.pet} was unliked`);
       } else {
         // await likePost(post.id);
         setIsLiked(true);
-        console.log(`${post.Name} was liked`);
+        console.log(`${post.pet} was liked`);
       }
     } catch (error) {
       console.error("Error toggling like:", error);
@@ -25,7 +25,8 @@ function Post({ post }) {
   return (
     <div className="post-container">
       <h2>{post.Name}</h2>
-      <img className="post-image" src={post.image_url} alt={post.Name} />
+      <img className="post-image" src={post.post_image} alt={post.pet} />
+      <p>{post.content}</p>
       <div className="post-socials">
         <Heart isClick={isLiked} onClick={handleLike} />
         <Comment />
