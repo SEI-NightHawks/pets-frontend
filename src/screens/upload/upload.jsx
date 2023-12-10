@@ -19,21 +19,16 @@ function Upload() {
   };
 
   const uploadImage = () => {
-    // Perform the upload based on the URL (you may need to adjust this logic)
     if (image) {
-      // For simplicity, set progress bar to 100% immediately
       setProgressBar(100);
-      // Set the image state with the URL
-      // This assumes that 'image' is a valid URL
-      // If it's a file, you should handle it differently
+
       setImage(image);
     }
   };
 
   const handlePost = () => {
-    // Call uploadImage to handle the image upload
     uploadImage();
-    // Set the caption state
+
     setCaption(comment);
   };
 
