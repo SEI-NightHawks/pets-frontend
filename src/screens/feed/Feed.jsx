@@ -3,14 +3,14 @@ import NavFeed from "../../components/Nav-feed.jsx";
 import "./feed.css";
 import "../../components/Nav-feed.css";
 
-function Feed({ posts }) {
+function Feed({ posts, pets }) {
   return (
     <div>
       <NavFeed />
       <h1>This is the Feed page</h1>
       <div>
-        {posts.map(post => (
-          <Post post={post} />
+        {posts.map((post) => (
+          <Post post={post} pets={pets} />
         ))}
       </div>
     </div>
