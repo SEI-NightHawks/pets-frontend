@@ -5,9 +5,8 @@ import { getPets } from "./services/pet.js";
 import Home from "./screens/home/Home.jsx";
 import Feed from "./screens/feed/Feed.jsx";
 import Nav from "./components/Nav-home.jsx";
-import NavLogin from "./components/Nav-login.jsx";
 import LoginPage from "./screens/loginpage/Loginpage.jsx";
-import NavSignup from "./components/Nav-signup.jsx";
+import Signuppage from "./screens/signup/Signup.jsx";
 import NavCreateProfile from "./components/Nav-create-profile.jsx";
 import NavFeed from "./components/Nav-feed.jsx";
 import NavModal from "./components/Nav-modal.jsx";
@@ -43,7 +42,7 @@ const App = () => {
         <Route path="/" element={<Nav />} />
         {/* <Route path="/login" element={<NavLogin />} /> */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<NavSignup />} />
+        <Route path="/signup" element={<Signuppage />} />
         <Route path="/create-profile" element={<NavCreateProfile />} />
         <Route path="/feed" element={<NavFeed />} />
         <Route path="/modal" element={<NavModal />} />
