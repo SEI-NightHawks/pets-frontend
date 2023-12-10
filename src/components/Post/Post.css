@@ -7,6 +7,18 @@
   border-radius: 50px;
 }
 
+.post-header {
+  display: flex;
+}
+
+.post-profile-pic {
+  height: 100px;
+  width: 100px;
+  border: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .post-image {
   height: 300px;
   display: block;

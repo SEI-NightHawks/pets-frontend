@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { getPosts } from "./services/posts.js";
+import { getPets } from "./services/pet.js";
 import Home from "./screens/home/Home.jsx";
 import Feed from "./screens/feed/Feed.jsx";
 import Nav from "./components/Nav-home.jsx";
@@ -15,12 +16,19 @@ import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
 //im
 const App = () => {
+  const [pets, setPets] = useState([]);
   const [posts, setPosts] = useState([]);
   const [curatedPosts, setCuratedPosts] = useState([]);
 
   useEffect(() => {
+    fetchPets();
     fetchPosts();
   }, []);
+
+  async function fetchPets() {
+    const allPets = await getPets();
+    setPets(allPets);
+  }
 
   async function fetchPosts() {
     const allPosts = await getPosts();
@@ -30,8 +38,8 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home posts={posts} />} />
-        <Route path="/feed" element={<Feed posts={posts} />} />
+        <Route path="/" element={<Home posts={posts} pets={pets} />} />
+        <Route path="/feed" element={<Feed posts={posts} pets={pets} />} />
         <Route path="/" element={<Nav />} />
         {/* <Route path="/login" element={<NavLogin />} /> */}
         <Route path="/login" element={<LoginPage />} />
