@@ -6,7 +6,7 @@ import Home from "./screens/home/Home.jsx";
 import Feed from "./screens/feed/Feed.jsx";
 import Nav from "./components/Nav-home.jsx";
 import NavLogin from "./components/Nav-login.jsx";
-import LoginPage from "./screens/loginpage/LoginPage.jsx";
+import LoginPage from "./screens/loginpage/loginpage.jsx";
 import NavSignup from "./components/Nav-signup.jsx";
 import NavCreateProfile from "./components/Nav-create-profile.jsx";
 import NavFeed from "./components/Nav-feed.jsx";
