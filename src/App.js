@@ -11,7 +11,7 @@ import NavLogin from "./components/Nav-login.jsx";
 import NavSignup from "./components/Nav-signup.jsx";
 import LoginPage from "./screens/loginpage/Loginpage.jsx";
 import Signuppage from "./screens/signup/Signup.jsx";
-import NavCreateProfile from "./components/Nav-create-profile.jsx";
+import Createprofile from "./screens/createprofile/Createprofile.jsx";
 import NavFeed from "./components/Nav-feed.jsx";
 import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
@@ -57,7 +57,6 @@ const App = () => {
         <Route path="/signup" element={<Signuppage setUser={setUser} />} />
         <Route path="/create-profile" element={<NavCreateProfile />} />
         <Route path="/feed" element={<NavFeed pets={pets} />} />{" "}
-        {/* Pass pets prop to NavFeed */}
         <Route path="/modal" element={<NavModal />} />
         <Route path="/profile" element={<NavProfile />} />
         <Route path="/personal-profile" element={<NavPersonalProfile />} />
