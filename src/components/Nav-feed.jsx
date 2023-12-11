@@ -10,7 +10,9 @@ const NavFeed = () => {
           <FaSearch className="icon" />
         </div>
         <div className="logo-image">
-          <img src="images/pets.png" alt="pets-logo" className="logo-image" />
+          <a href="feed">
+            <img src="images/pets.png" alt="pets-logo" className="logo-image" />
+          </a>
         </div>
         <div className="profile-icon">
           <FaUser className="icon" />
