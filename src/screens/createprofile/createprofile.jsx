@@ -25,7 +25,7 @@ const Profile = () => {
   };
 
   return (
-    <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
+    <section className="flex items-center justify-center min-h-screen bg-slate-50">
       <Form
         petSpecies={petSpecies}
         breed={breed}
@@ -79,117 +79,111 @@ const Form = ({
         staggerChildren: 0.05,
       }}
       viewport={{ once: true }}
-      className="flex items-center justify-center min-h-screen"
+      className="mx-auto my-auto max-w-lg px-4 md:pr-0"
     >
-      <div className="mx-auto my-auto max-w-lg px-4 md:pr-0">
-        <motion.h1
+      <motion.h1
+        variants={primaryVariants}
+        className="mb-2 text-center text-4xl font-semibold"
+      >
+        Create Your Pet's Bio
+      </motion.h1>
+
+      <form onSubmit={onAddPet} className="w-full">
+        <motion.div variants={primaryVariants} className="mb-4 w-full">
+          <label className="mb-1 inline-block text-sm font-medium">
+            Name <span className="text-red-600">*</span>
+          </label>
+          <input
+            type="input"
+            placeholder="Pet's Name"
+            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+            value={name}
+            onChange={(e) => onNameChange(e.target.value)}
+            required
+          />
+        </motion.div>
+
+        <motion.div variants={primaryVariants} className="mb-2 w-full">
+          <label className="mb-1 inline-block text-sm font-medium">
+            Species<span className="text-red-600">*</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Species"
+            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+            value={petSpecies}
+            onChange={(e) => onPetSpeciesChange(e.target.value)}
+            required
+          />
+        </motion.div>
+
+        <motion.div variants={primaryVariants} className="mb-2 w-full">
+          <label className="mb-1 inline-block text-sm font-medium">
+            Breed<span className="text-red-600">*</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Pet's Breed"
+            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+            value={breed}
+            onChange={(e) => onBreedChange(e.target.value)}
+            required
+          />
+        </motion.div>
+
+        <motion.div variants={primaryVariants} className="mb-4 w-full">
+          <label className="mb-1 inline-block text-sm font-medium">
+            Age <span className="text-red-600">*</span>
+          </label>
+          <input
+            type="number"
+            placeholder="Pet's Age"
+            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+            value={age}
+            onChange={(e) => onAgeChange(e.target.value)}
+            required
+          />
+        </motion.div>
+
+        <motion.div variants={primaryVariants} className="mb-4 w-full">
+          <label className="mb-1 inline-block text-sm font-medium">
+            Gender <span className="text-red-600">*</span>
+          </label>
+          <input
+            type="input"
+            placeholder="Pet's Gender"
+            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+            value={gender}
+            onChange={(e) => onGenderChange(e.target.value)}
+            required
+          />
+        </motion.div>
+
+        <motion.div variants={primaryVariants} className="mb-4 w-full">
+          <label className="mb-1 inline-block text-sm font-medium">
+            Pet's Profile Picture URL <span className="text-red-600">*</span>
+          </label>
+          <input
+            type="url"
+            placeholder="Pet's Profile Picture URL"
+            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+            value={profile_Img}
+            onChange={(e) => onprofile_ImgChange(e.target.value)}
+            required
+          />
+        </motion.div>
+
+        <motion.button
           variants={primaryVariants}
-          className="mb-2 text-center text-4xl font-semibold"
+          whileTap={{
+            scale: 0.985,
+          }}
+          type="submit"
+          className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
         >
-          Create Your Pet's Bio
-        </motion.h1>
-        {/* <motion.p
-          variants={primaryVariants}
-          className="mb-8 text-center"
-        ></motion.p> */}
-
-        <form onSubmit={onAddPet} className="w-full">
-          <motion.div variants={primaryVariants} className="mb-4 w-full">
-            <label className="mb-1 inline-block text-sm font-medium">
-              Name <span className="text-red-600">*</span>
-            </label>
-            <input
-              type="input"
-              placeholder="Pet's Name"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-              value={name}
-              onChange={(e) => onNameChange(e.target.value)}
-              required
-            />
-          </motion.div>
-
-          <motion.div variants={primaryVariants} className="mb-2 w-full">
-            <label className="mb-1 inline-block text-sm font-medium">
-              Species<span className="text-red-600">*</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Enter Species"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-              value={petSpecies}
-              onChange={(e) => onPetSpeciesChange(e.target.value)}
-              required
-            />
-          </motion.div>
-
-          <motion.div variants={primaryVariants} className="mb-2 w-full">
-            <label className="mb-1 inline-block text-sm font-medium">
-              Breed<span className="text-red-600">*</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Enter Pet's Breed"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-              value={breed}
-              onChange={(e) => onBreedChange(e.target.value)}
-              required
-            />
-          </motion.div>
-
-          <motion.div variants={primaryVariants} className="mb-4 w-full">
-            <label className="mb-1 inline-block text-sm font-medium">
-              Age <span className="text-red-600">*</span>
-            </label>
-            <input
-              type="number"
-              placeholder="Pet's Age"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-              value={age}
-              onChange={(e) => onAgeChange(e.target.value)}
-              required
-            />
-          </motion.div>
-
-          <motion.div variants={primaryVariants} className="mb-4 w-full">
-            <label className="mb-1 inline-block text-sm font-medium">
-              Gender <span className="text-red-600">*</span>
-            </label>
-            <input
-              type="input"
-              placeholder="Pet's Gender"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-              value={gender}
-              onChange={(e) => onGenderChange(e.target.value)}
-              required
-            />
-          </motion.div>
-
-          <motion.div variants={primaryVariants} className="mb-4 w-full">
-            <label className="mb-1 inline-block text-sm font-medium">
-              Pet's Profile Picture URL <span className="text-red-600">*</span>
-            </label>
-            <input
-              type="url"
-              placeholder="Pet's Profile Picture URL"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-              value={profile_Img}
-              onChange={(e) => onprofile_ImgChange(e.target.value)}
-              required
-            />
-          </motion.div>
-
-          <motion.button
-            variants={primaryVariants}
-            whileTap={{
-              scale: 0.985,
-            }}
-            type="submit"
-            className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
-          >
-            Submit
-          </motion.button>
-        </form>
-      </div>
+          Submit
+        </motion.button>
+      </form>
     </motion.div>
   );
 };
