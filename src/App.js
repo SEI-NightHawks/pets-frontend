@@ -5,16 +5,15 @@ import { getPets } from "./services/pet.js";
 import Home from "./screens/home/Home.jsx";
 import Feed from "./screens/feed/Feed.jsx";
 import Nav from "./components/Nav-home.jsx";
-import NavLogin from "./components/Nav-login.jsx";
-import LoginPage from "./screens/loginpage/loginpage.jsx";
-import NavSignup from "./components/Nav-signup.jsx";
+import LoginPage from "./screens/loginpage/Loginpage.jsx";
+import Signuppage from "./screens/signup/Signup.jsx";
 import NavCreateProfile from "./components/Nav-create-profile.jsx";
 import NavFeed from "./components/Nav-feed.jsx";
 import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
-
+//im
 const App = () => {
   const [pets, setPets] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -43,7 +42,7 @@ const App = () => {
         <Route path="/" element={<Nav />} />
         {/* <Route path="/login" element={<NavLogin />} /> */}
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<NavSignup />} />
+        <Route path="/signup" element={<Signuppage />} />
         <Route path="/create-profile" element={<NavCreateProfile />} />
         <Route path="/feed" element={<NavFeed />} />
         <Route path="/modal" element={<NavModal />} />
