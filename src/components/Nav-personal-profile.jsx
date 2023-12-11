@@ -1,27 +1,47 @@
-import React from "react";
-import { FaSearch, FaUser, FaBars } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaSearch, FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 import "./Nav-create-profile.css";
-import { NavLink } from "react-router-dom";
 
 const NavPersonalProfile = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate(`/profile/${searchQuery}`);
+  };
+
+  const handleImageClick = () => {
+    navigate("/");
+  };
+
   return (
-    <nav className="navbar">
-      <div className="nav-container">
-        <div className="pet-info">
-          <span className="pet-name">Dumbledoor</span>
-          <span className="pet-gender">(Boy)</span>{" "}
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <div className="pet-info">
+            <span className="pet-name">Dumbledoor</span>
+            <span className="pet-gender">(Boy)</span>
+          </div>
+          <div
+            className="logo-image-personal-profile"
+            onClick={handleImageClick}
+          >
+            <img src="images/pets.png" alt="pets-logo" className="logo-image" />
+          </div>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search for a pet..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <FaSearch className="search-icon" onClick={handleSearch} />
+          </div>
         </div>
-        <div className="logo-image">
-          <img src="images/pets.png" alt="pets-logo" className="logo-image" />
-        </div>
-        <div className="search-loop">
-          <FaSearch className="icon" />
-        </div>
-        <div className="burger-icon">
-          <FaBars className="icon" />
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 };
 
