@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./upload.css";
 import NavUpload from "../../components/Nav-upload.jsx";
+import { createPost } from "../../services/posts.js";
 
 function Upload() {
   const [image, setImage] = useState("");
+  const [content, setContent] = useState("");
   const [caption, setCaption] = useState("");
-  const [comment, setComment] = useState("");
   const [progressBar, setProgressBar] = useState(0);
 
   const handleUrl = (event) => {
@@ -14,22 +14,24 @@ function Upload() {
     setImage(url);
   };
 
-  const handleComment = (event) => {
-    setComment(event.target.value);
+  const handleContent = (event) => {
+    setContent(event.target.value);
   };
 
   const uploadImage = () => {
     if (image) {
       setProgressBar(100);
-
-      setImage(image);
     }
   };
 
-  const handlePost = () => {
+  const handlePost = async () => {
     uploadImage();
 
-    setCaption(comment);
+    await createPost({
+      content,
+      post_image: image,
+      pet: 1,
+    });
   };
 
   return (
@@ -65,7 +67,8 @@ function Upload() {
               type="text"
               className="form-control mt-4"
               placeholder="Caption"
-              onChange={handleComment}
+              value={content}
+              onChange={handleContent}
             />
             <button
               className="btn btn-primary mt-4"

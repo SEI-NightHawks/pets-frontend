@@ -15,8 +15,8 @@ import NavFeed from "./components/Nav-feed.jsx";
 import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
-
 import NavUpload from "./components/Nav-upload.jsx";
+
 const App = () => {
   const [pets, setPets] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -39,7 +39,6 @@ const App = () => {
 
   return (
     <div>
-      <Nav />
       <Routes>
         <Route path="/" element={<Home posts={posts} pets={pets} />} />
         <Route path="/feed" element={<Feed posts={posts} pets={pets} />} />
