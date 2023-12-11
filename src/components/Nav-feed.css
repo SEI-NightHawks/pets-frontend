@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -17,10 +17,10 @@
   align-items: center;
 }
 
-/* .logo-image-feed {
+.logo-image-feed {
   margin-left: 450px;
   position: absolute;
-} */
+}
 
 .envelope-icon {
   position: relative;
@@ -29,6 +29,18 @@
 
 .profile-icon {
   margin-left: auto;
+} */
+
+.navbar {
+  background-color: #0089ad;
+  color: #fff;
+  padding: 10px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo-image-feed {
@@ -47,7 +59,12 @@ input {
   border-radius: 4px;
 }
 
-.search-icon {
+.search-button {
+  padding: 6px 10px;
+  background-color: #fff;
+  color: #0089ad;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
 }
 
