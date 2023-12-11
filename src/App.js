@@ -17,6 +17,7 @@ import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
 import './App.css';
+// import Bottomfooter from './components/footer/Bottomfooter.jsx';
 
 const App = () => {
   const [pets, setPets] = useState([]);
