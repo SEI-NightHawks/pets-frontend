@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { verifyUser } from "./services/users.js";
 import { getPosts } from "./services/posts.js";
-import { getPets } from "./services/pet.js";
+import { getMyPets } from "./services/pet.js";
 import Home from "./screens/home/Home.jsx";
 import Feed from "./screens/feed/Feed.jsx";
 import Nav from "./components/Nav-home.jsx";
@@ -16,20 +17,27 @@ import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
-import './App.css';
+import "./App.css";
 
 const App = () => {
+  const [user, setUser] = useState(null);
   const [pets, setPets] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [curatedPosts, setCuratedPosts] = useState([]);
+  const [primaryPet, setPrimaryPet] = useState(null);
 
   useEffect(() => {
+    fetchUser();
     fetchPets();
     fetchPosts();
   }, []);
 
+  async function fetchUser() {
+    const userData = await verifyUser();
+    setUser(userData);
+  }
+
   async function fetchPets() {
-    const allPets = await getPets();
+    const allPets = await getMyPets();
     setPets(allPets);
   }
 
@@ -41,12 +49,12 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home posts={posts} pets={pets} />} />
-        <Route path="/feed" element={<Feed posts={posts} pets={pets} />} />
-        <Route path="/" element={<Nav />} />
+        <Route path="/" element={<Home posts={posts} />} />
+        <Route path="/feed" element={<Feed posts={posts} />} />
+        {/* <Route path="/" element={<Nav />} /> */}
         {/* <Route path="/login" element={<NavLogin />} /> */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<Signuppage />} />
+        <Route path="/login" element={<LoginPage setUser={setUser} />} />
+        <Route path="/signup" element={<Signuppage setUser={setUser} />} />
         <Route path="/create-profile" element={<NavCreateProfile />} />
         <Route path="/feed" element={<NavFeed />} />
         <Route path="/modal" element={<NavModal />} />

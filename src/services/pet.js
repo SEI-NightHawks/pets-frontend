@@ -1,8 +1,8 @@
 import api from "./apiconfig.js";
 
-export const getPets = async () => {
+export const getMyPets = async () => {
   try {
-    const response = await api.get("/pets/?format=json");
+    const response = await api.get("/user/pets/");
     return response.data;
   } catch (error) {
     throw error;
