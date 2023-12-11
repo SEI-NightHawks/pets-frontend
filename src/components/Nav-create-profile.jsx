@@ -1,7 +1,3 @@
-import React from "react";
-import "./Nav-create-profile.css";
-import { NavLink } from "react-router-dom";
-
 const NavCreateProfile = () => {
   return (
     <nav className="navbar">
