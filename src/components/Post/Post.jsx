@@ -2,18 +2,18 @@ import { useState } from "react";
 import "./Post.css";
 import Heart from "react-animated-heart";
 
-function Post({ post, pets }) {
+function Post({ post }) {
   const [isLiked, setIsLiked] = useState(false);
 
   let petName = "";
   let petProfilePic = "";
 
-  pets.forEach((pet) => {
-    if (pet.id === post.pet) {
-      petName = pet.name;
-      petProfilePic = pet.profile_img;
-    }
-  });
+  // pets.forEach((pet) => {
+  //   if (pet.id === post.pet) {
+  //     petName = pet.name;
+  //     petProfilePic = pet.profile_img;
+  //   }
+  // });
 
   const handleLike = async () => {
     try {

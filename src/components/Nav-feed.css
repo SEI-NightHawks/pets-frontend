@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -17,30 +17,62 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.logo-image {
-  margin-left: 295px;
-}
-
-.profile-icon {
-  width: 60px;
-}
-
-.icon {
-  margin-left: 40px;
-  width: 40px;
-  height: 50px;
-}
-
-.profile-icon {
-  margin-left: 650px;
+.logo-image-feed {
+  margin-left: 450px;
+  position: absolute;
 }
 
 .envelope-icon {
-  margin-right: 40px;
-  margin-top: 10px;
+  position: relative;
+  margin-left: 480px;
+}
+
+.profile-icon {
+  margin-left: auto;
+} */
+
+.navbar {
+  background-color: #0089ad;
+  color: #fff;
+  padding: 10px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-image-feed {
+  margin-right: 20px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  padding: 5px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.search-button {
+  padding: 6px 10px;
+  background-color: #fff;
+  color: #0089ad;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.profile-icon,
+.envelope-icon {
+  margin-left: 20px;
 }

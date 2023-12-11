@@ -7,24 +7,38 @@
 .navbar {
   background-color: #0089ad;
   color: #fff;
-  padding: 10px;
+  height: 40px;
+}
+
+/* .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+/* .nav-container {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  margin-left: auto; /* This will push the input to the right */
+  margin-right: 15px; /* Add additional margin if needed */
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
+}
+
+.search-container {
+  display: flex;
   align-items: center;
-}
-
-.gender {
-  margin-left: 10px;
-}
-
-.profile-namee {
-  margin-left: 20px;
-  font-size: 50px;
-}
-
-.search-loop {
-  margin-right: 70px;
+  margin-left: auto; /* This will push the search container to the right */
+  margin-right: 15px; /* Add additional margin if needed */
 }
