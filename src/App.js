@@ -55,7 +55,7 @@ const App = () => {
         {/* <Route path="/login" element={<NavLogin />} /> */}
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/signup" element={<Signuppage setUser={setUser} />} />
-        <Route path="/create-profile" element={<NavCreateProfile />} />
+        <Route path="/createprofile" element={<Createprofile />} />
         <Route path="/feed" element={<NavFeed pets={pets} />} />{" "}
         <Route path="/modal" element={<NavModal />} />
         <Route path="/profile" element={<NavProfile />} />
