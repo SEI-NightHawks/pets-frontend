@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { verifyUser } from "./services/users.js";
 import { getPosts } from "./services/posts.js";
@@ -56,7 +56,8 @@ const App = () => {
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/signup" element={<Signuppage setUser={setUser} />} />
         <Route path="/create-profile" element={<NavCreateProfile />} />
-        <Route path="/feed" element={<NavFeed />} />
+        <Route path="/feed" element={<NavFeed pets={pets} />} />{" "}
+        {/* Pass pets prop to NavFeed */}
         <Route path="/modal" element={<NavModal />} />
         <Route path="/profile" element={<NavProfile />} />
         <Route path="/personal-profile" element={<NavPersonalProfile />} />
