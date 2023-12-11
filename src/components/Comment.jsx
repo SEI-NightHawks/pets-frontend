@@ -15,16 +15,17 @@ const Comment = () => {
   ];
   return (
     <CommentSection
-      currentUser={{
-        currentUserId: "01a",
-        currentUserImg:
-          "https://ui-avatars.com/api/name=Riya&background=random",
-        currentUserProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
-        currentUserFullName: "Riya Negi",
-      }}
+      currentUser={null}
+      // {{
+      //   currentUserId: "01a",
+      //   currentUserImg:
+      //     "https://ui-avatars.com/api/name=Riya&background=random",
+      //   currentUserProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
+      //   currentUserFullName: "Riya Negi",
+      // }}
       logIn={{
-        loginLink: "http://localhost:3001/",
-        signupLink: "http://localhost:3001/",
+        loginLink: "/login",
+        signupLink: "/signup",
       }}
       commentData={data}
       onSubmitAction={(data) => {
