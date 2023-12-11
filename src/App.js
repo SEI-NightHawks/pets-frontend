@@ -10,13 +10,13 @@ import NavLogin from "./components/Nav-login.jsx";
 import NavSignup from "./components/Nav-signup.jsx";
 import LoginPage from "./screens/loginpage/Loginpage.jsx";
 import Signuppage from "./screens/signup/Signup.jsx";
-import NavCreateProfile from "./components/Nav-create-profile.jsx";
+import Createprofile from "./screens/createprofile/Createprofile.jsx";
 import NavFeed from "./components/Nav-feed.jsx";
 import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
-import './App.css';
+import "./App.css";
 
 const App = () => {
   const [pets, setPets] = useState([]);
@@ -47,7 +47,7 @@ const App = () => {
         {/* <Route path="/login" element={<NavLogin />} /> */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<Signuppage />} />
-        <Route path="/create-profile" element={<NavCreateProfile />} />
+        <Route path="/create-profile" element={<Createprofile />} />
         <Route path="/feed" element={<NavFeed />} />
         <Route path="/modal" element={<NavModal />} />
         <Route path="/profile" element={<NavProfile />} />
