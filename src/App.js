@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     fetchUser();
-    fetchPets();
+    // fetchPets();
     fetchPosts();
   }, []);
 
