@@ -11,7 +11,7 @@ function shuffleArray(array) {
   return array;
 }
 
-function Home({ posts, pets }) {
+function Home({ posts }) {
   const shuffledPosts = shuffleArray([...posts]);
 
   return (
@@ -20,7 +20,7 @@ function Home({ posts, pets }) {
       <h1>This is the Home page</h1>
       <div>
         {shuffledPosts.map((post) => (
-          <Post key={post.id} post={post} pets={pets} />
+          <Post key={post.id} post={post} />
         ))}
       </div>
     </div>
