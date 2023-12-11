@@ -77,6 +77,7 @@ import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
+import './App.css';
 
 const App = () => {
   const [pets, setPets] = useState([]);
