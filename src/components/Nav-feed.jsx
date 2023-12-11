@@ -7,7 +7,7 @@ const NavFeed = () => {
   const navigate = useNavigate();
 
   const handleProfileClick = () => {
-    navigate("/profile");
+    navigate("/personal-profile");
   };
 
   return (
