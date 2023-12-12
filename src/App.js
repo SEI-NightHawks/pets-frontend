@@ -14,11 +14,11 @@ import Signuppage from "./screens/signup/Signup.jsx";
 import Createprofile from "./screens/createprofile/Createprofile.jsx";
 import NavFeed from "./components/Nav-feed.jsx";
 import NavModal from "./components/Nav-modal.jsx";
-import NavProfile from "./components/Nav-profile.jsx";
+import Profile from "./screens/profile/Profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
 import "./App.css";
-
+// import Bottomfooter from './components/footer/FloatingBottomNav.jsx';
 const App = () => {
   const [user, setUser] = useState(null);
   const [pets, setPets] = useState([]);
@@ -66,7 +66,7 @@ const App = () => {
         />
         <Route path="/feed" element={<NavFeed pets={pets} />} />{" "}
         <Route path="/modal" element={<NavModal />} />
-        <Route path="/profile" element={<NavProfile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route
           path="/personal-profile"
           element={
