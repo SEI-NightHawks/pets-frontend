@@ -14,7 +14,7 @@ import Signuppage from "./screens/signup/Signup.jsx";
 import NavCreateProfile from "./components/Nav-create-profile.jsx";
 import NavFeed from "./components/Nav-feed.jsx";
 import NavModal from "./components/Nav-modal.jsx";
-import NavProfile from "./components/Nav-profile.jsx";
+import Profile from "./screens/profile/Profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
 import "./App.css";
@@ -27,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     fetchUser();
-    fetchPets();
+    // fetchPets();
     fetchPosts();
   }, []);
 
@@ -59,7 +59,7 @@ const App = () => {
         <Route path="/feed" element={<NavFeed pets={pets} />} />{" "}
         {/* Pass pets prop to NavFeed */}
         <Route path="/modal" element={<NavModal />} />
-        <Route path="/profile" element={<NavProfile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/personal-profile" element={<NavPersonalProfile />} />
         <Route path="/upload" element={<Upload />} />
       </Routes>

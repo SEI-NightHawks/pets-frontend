@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+
 import {
   FiUpload,
   FiMenu,
@@ -7,6 +8,7 @@ import {
   FiX,
   FiUser,
 } from "react-icons/fi";
+
 
 const FloatingBottomNav = () => {
   const [open, setOpen] = useState(false);
@@ -21,9 +23,9 @@ const FloatingBottomNav = () => {
       >
         <MenuButton setOpen={setOpen} open={open} />
         <div className="flex gap-6 px-6">
-          <Link text="Home" Icon={FiHome} />
-          <Link text="Post" Icon={FiUpload} />
-          <Link text="Profile" Icon={FiUser} />
+          <Link to='/feed' text="Home" Icon={FiHome} />
+          <Link to='/upload' text="Post" Icon={FiUpload} />
+          <Link to='/profile' text="Profile" Icon={FiUser} />
         </div>
         <Menu />
       </motion.nav>
