@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Post.css";
 import Heart from "react-animated-heart";
-import FloatingBottomNav from "../footer/FloatingBottomNav.jsx";
 
 function Post({ post }) {
   const [isLiked, setIsLiked] = useState(false);
@@ -37,7 +36,6 @@ function Post({ post }) {
       <div className="post-socials">
         <Heart isClick={isLiked} onClick={handleLike} />
       </div>
-      <FloatingBottomNav />
     </div>
   );
 }
