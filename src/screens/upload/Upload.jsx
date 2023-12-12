@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./upload.css";
 import NavUpload from "../../components/Nav-upload.jsx";
 import { createPost } from "../../services/posts.js";
+import FloatingBottomNav from "../../components/footer/FloatingBottomNav.jsx";
 
 function Upload() {
   const [image, setImage] = useState("");
@@ -71,25 +72,32 @@ function Upload() {
               onChange={handleContent}
             />
             <button
-              className="btn btn-primary mt-4"
-              style={{
-                borderRadius: "20px",
-                backgroundColor: "#0089AD",
-                color: "#EAE0D7",
-                width: "640px",
-                border: "none",
-              }}
+              className="btn custom-btn mt-4"
+              // style={{
+              //   borderRadius: "20px",
+              //   backgroundColor: "#0089AD",
+              //   color: "#fefefe",
+              //   maxWidth: "100%",
+              //   width: "100%",
+              //   border: "none",
+              //   transition: "background-color 0.3s ease-in-out",
+              // }}
               onClick={handlePost}
+            
             >
               Post
             </button>
+      
             {caption && (
               <div className="mt-4">
                 <strong>Caption:</strong> {caption}
               </div>
             )}
+            <FloatingBottomNav />
           </div>
+          
         </div>
+      
       </div>
     </>
   );

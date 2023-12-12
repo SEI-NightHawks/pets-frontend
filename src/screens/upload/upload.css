@@ -1,0 +1,15 @@
+/* Add this to your CSS stylesheet or style block */
+.btn.custom-btn {
+    border-radius: 20px;
+    background-color: #0089AD;
+    color: #fefefe;
+    max-width: 100%;
+    width: 100%;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn.custom-btn:hover {
+    background-color: #006080;
+  }
+  
