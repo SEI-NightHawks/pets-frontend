@@ -17,7 +17,7 @@ const NavProfile = () => {
           <span className="pet-name">June</span>
           <span className="pet-gender">(girl)</span>{" "}
         </div>
-        <div className="logo-image" onClick={handleImageClick}>
+        <div className="logo-image-personal-profile" onClick={handleImageClick}>
           <img src="images/pets.png" alt="pets-logo" className="logo-image" />
         </div>
         <div className="profile-icon" onClick={handleImageClick}>

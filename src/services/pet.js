@@ -18,9 +18,9 @@ export const getPet = async (id) => {
   }
 };
 
-export const createpets = async (pets) => {
+export const createPet = async (pet) => {
   try {
-    const response = await api.post("/pets/?format=json", pets);
+    const response = await api.post("/pets/", pet);
     return response.data;
   } catch (error) {
     throw error;
