@@ -6,16 +6,6 @@ import FloatingBottomNav from "../footer/FloatingBottomNav.jsx";
 function Post({ post }) {
   const [isLiked, setIsLiked] = useState(false);
 
-  let petName = "";
-  let petProfilePic = "";
-
-  // pets.forEach((pet) => {
-  //   if (pet.id === post.pet) {
-  //     petName = pet.name;
-  //     petProfilePic = pet.profile_img;
-  //   }
-  // });
-
   const handleLike = async () => {
     try {
       if (isLiked) {
@@ -35,8 +25,12 @@ function Post({ post }) {
   return (
     <div className="post-container">
       <div className="post-header">
-        <img className="post-profile-pic" src={petProfilePic} alt={petName} />
-        <h1>{petName}</h1>
+        <img
+          className="post-profile-pic"
+          src={post.pet.profile_img}
+          alt={post.pet.name}
+        />
+        <h1>{post.pet.name}</h1>
       </div>
       <img className="post-image" src={post.post_image} alt={post.pet} />
       <p>{post.content}</p>
