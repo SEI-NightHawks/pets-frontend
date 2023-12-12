@@ -16,7 +16,8 @@ import NavModal from "./components/Nav-modal.jsx";
 import NavProfile from "./components/Nav-profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
-import './App.css';
+import "./App.css";
+import Profile from "./screens/profile/profile.jsx";
 
 const App = () => {
   const [pets, setPets] = useState([]);
@@ -50,7 +51,9 @@ const App = () => {
         <Route path="/create-profile" element={<NavCreateProfile />} />
         <Route path="/feed" element={<NavFeed />} />
         <Route path="/modal" element={<NavModal />} />
-        <Route path="/profile" element={<NavProfile />} />
+        {/* <Route path="/profile" element={<NavProfile />} /> */}
+        <Route path="/profile" element={<Profile />} />
+
         <Route path="/personal-profile" element={<NavPersonalProfile />} />
         <Route path="/upload" element={<Upload />} />
       </Routes>
