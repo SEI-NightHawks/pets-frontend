@@ -5,13 +5,16 @@
 }
 
 .navbar {
-  background-color: #0089ad;
-  color: #fff;
-  padding: 10px;
+  background-color: whitesmoke;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.logo-image-upload {
+  width: 95px;
+  margin-left: 670px;
 }

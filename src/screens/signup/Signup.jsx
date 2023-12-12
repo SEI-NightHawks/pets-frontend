@@ -1,26 +1,52 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import NavSignup from "../../components/Nav-signup"; 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signUp } from "../../services/users";
+import NavSignup from "../../components/Nav-signup";
 // import "../../tailwind/tailwind.css";
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiStar } from "react-icons/fi";
 import "../../App.css";
 
-
-const Signup = () => {
+const Signup = ({ setUser }) => {
   return (
     <div>
       <NavSignup />
-        <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
-      <Logo />
-      <Form />
-      <SupplementalContent />
+      <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
+        <Logo />
+        <Form setUser={setUser} />
+        <SupplementalContent />
       </section>
     </div>
   );
 };
 
-const Form = () => {
+const Form = ({ setUser }) => {
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  let navigate = useNavigate();
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const userData = await signUp(form);
+    setUser(userData);
+
+    navigate("/feed");
+  }
+
   return (
     <motion.div
       initial="initial"
@@ -42,17 +68,20 @@ const Form = () => {
           {/* Add text if you want */}
         </motion.p>
 
-        <form onSubmit={(e) => e.preventDefault()} className="w-full">
+        <form onSubmit={handleSubmit} className="w-full">
           <motion.div variants={primaryVariants} className="mb-2 w-full">
             <label
-              htmlFor="email-input"
+              htmlFor="username-input"
               className="mb-1 inline-block text-sm font-medium"
             >
               Username<span className="text-red-600">*</span>
             </label>
             <input
-              id="email-input"
-              type="email"
+              id="username-input"
+              type="text"
+              value={form.username}
+              onChange={handleChange}
+              name="username"
               placeholder="Enter your username"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
@@ -64,12 +93,15 @@ const Form = () => {
               htmlFor="password-input"
               className="mb-1 inline-block text-sm font-medium"
             >
-              Email<span className="text-red-600">*</span>
+              Password<span className="text-red-600">*</span>
             </label>
             <input
               id="password-input"
               type="password"
-              placeholder="Enter your email"
+              placeholder="Enter your password"
+              value={form.password}
+              onChange={handleChange}
+              name="password"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
             />
@@ -80,12 +112,15 @@ const Form = () => {
               htmlFor="rt-password-input"
               className="mb-1 inline-block text-sm font-medium"
             >
-              Password<span className="text-red-600">*</span>
+              Confirm Password<span className="text-red-600">*</span>
             </label>
             <input
               id="rt-password-input"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Confirm your password"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              name="confirmPassword"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
             />
@@ -157,18 +192,14 @@ const SupplementalContent = () => {
         >
           Welcome to OnlyPets
           <br />
-      
         </motion.h2>
         <motion.p
           variants={primaryVariants}
           className="mb-6 max-w-md text-sm text-slate-300"
         >
-         Unleash the Social Side of Animals!
+          Unleash the Social Side of Animals!
         </motion.p>
-        <div className="flex items-center gap-4">
-          
-          
-        </div>
+        <div className="flex items-center gap-4"></div>
       </motion.div>
     </div>
   );

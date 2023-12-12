@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Nav-feed.css";
-import { FaSearch, FaUser, FaEnvelope } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const NavFeed = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleImageClick = () => {
+    navigate("/"); //This should send me home but it isn't????:/
+  };
+
+  const handleSearch = () => {
+    //This will send you to the searched user's profile page!!!!
+    if (searchTerm.trim() !== "") {
+      navigate(`/profile/${searchTerm}`);
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="search-loop">
-          <FaSearch className="icon" />
-        </div>
-        <div className="logo-image">
+        <div className="logo-image-feed" onClick={handleImageClick}>
           <a href="feed">
             <img src="images/pets.png" alt="pets-logo" className="logo-image" />
           </a>
         </div>
-        <div className="profile-icon">
-          <FaUser className="icon" />
-        </div>
-        <div className="envelope-icon">
-          <FaEnvelope className="icon" />
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button onClick={handleSearch}>
+            <FaSearch />
+          </button>
         </div>
       </div>
     </nav>

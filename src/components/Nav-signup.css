@@ -5,9 +5,7 @@
 }
 
 .navbar {
-  background-color: #0089ad;
-  color: #fff;
-  padding: 10px;
+  background-color: whitesmoke;
 }
 
 .nav-container {
@@ -16,12 +14,7 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.logo-image {
+.logo-image-signup {
   width: 95px;
-  margin: 0 auto;
+  margin-left: 660px;
 }

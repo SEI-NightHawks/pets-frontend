@@ -5,9 +5,7 @@
 }
 
 .navbar {
-  background-color: #0089ad;
-  color: #fff;
-  padding: 10px;
+  background-color: whitesmoke;
 }
 
 .nav-container {
@@ -16,15 +14,12 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
-  font-weight: bold;
+  font-size: 15px;
+  margin-left: 1250px;
+  padding-top: 15px;
 }
 
 .nav-links li {
@@ -33,15 +28,11 @@
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
 
-.logo {
-  font-size: 45px;
-  margin-left: 30px;
-  font-weight: bold;
-}
-
-.logo-image {
+.logo-image-home {
   width: 95px;
+  margin-left: 660px;
+  position: absolute;
 }

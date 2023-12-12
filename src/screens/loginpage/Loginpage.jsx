@@ -1,26 +1,51 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import NavLogin from "../../components/Nav-login"; 
+import React, { useState } from "react";
+import { login } from "../../services/users";
+import { useNavigate } from "react-router-dom";
+import NavLogin from "../../components/Nav-login";
 // import "../../tailwind/tailwind.css";
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiStar } from "react-icons/fi";
 import "../../App.css";
 
-
-const Loginpage = () => {
+const Loginpage = ({ setUser }) => {
   return (
     <div>
       <NavLogin />
-        <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
-      <Logo />
-      <Form />
-      <SupplementalContent />
+      <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
+        <Logo />
+        <Form setUser={setUser} />
+        <SupplementalContent />
       </section>
     </div>
   );
 };
 
-const Form = () => {
+const Form = ({ setUser }) => {
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+
+  let navigate = useNavigate();
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const userData = await login(form);
+    setUser(userData);
+
+    navigate("/feed");
+  }
+
   return (
     <motion.div
       initial="initial"
@@ -42,18 +67,21 @@ const Form = () => {
           {/* Add text if you want */}
         </motion.p>
 
-        <form onSubmit={(e) => e.preventDefault()} className="w-full">
+        <form onSubmit={handleSubmit} className="w-full">
           <motion.div variants={primaryVariants} className="mb-2 w-full">
             <label
-              htmlFor="email-input"
+              htmlFor="username-input"
               className="mb-1 inline-block text-sm font-medium"
             >
-              Email<span className="text-red-600">*</span>
+              Username<span className="text-red-600">*</span>
             </label>
             <input
-              id="email-input"
-              type="email"
-              placeholder="Enter your email"
+              id="username-input"
+              type="text"
+              placeholder="Enter your username"
+              value={form.username}
+              onChange={handleChange}
+              name="username"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
             />
@@ -70,12 +98,15 @@ const Form = () => {
               id="password-input"
               type="password"
               placeholder="Enter your password"
+              value={form.password}
+              onChange={handleChange}
+              name="password"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
             />
           </motion.div>
 
-          <motion.div variants={primaryVariants} className="mb-4 w-full">
+          {/* <motion.div variants={primaryVariants} className="mb-4 w-full">
             <label
               htmlFor="rt-password-input"
               className="mb-1 inline-block text-sm font-medium"
@@ -86,12 +117,15 @@ const Form = () => {
               id="rt-password-input"
               type="password"
               placeholder="Re-type your password"
+              value={form.confirmPassword}
+              onChange={handleChange}
+              name="confirmPassword"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
             />
-          </motion.div>
+          </motion.div> */}
 
-          <motion.div
+          {/* <motion.div
             variants={primaryVariants}
             className="mb-4 flex w-full items-start gap-1.5"
           >
@@ -105,7 +139,7 @@ const Form = () => {
               By signing up, I agree to the terms and conditions, privacy
               policy, and cookie policy
             </label>
-          </motion.div>
+          </motion.div> */}
 
           <motion.button
             variants={primaryVariants}
@@ -115,9 +149,8 @@ const Form = () => {
             type="submit"
             className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
           >
-            Login 
+            Login
           </motion.button>
-          
         </form>
       </div>
     </motion.div>
@@ -152,18 +185,14 @@ const SupplementalContent = () => {
         >
           Welcome to Only Pets
           <br />
-          
         </motion.h2>
         <motion.p
           variants={primaryVariants}
           className="mb-6 max-w-md text-sm text-slate-300"
         >
-         Where pets have their own space 
+          Where pets have their own space
         </motion.p>
-        <div className="flex items-center gap-4">
-          
-    
-        </div>
+        <div className="flex items-center gap-4"></div>
       </motion.div>
     </div>
   );
@@ -213,6 +242,7 @@ const avatarVariants = {
     opacity: 1,
   },
 };
+
 export default Loginpage;
 
 //add class name sto this jsx and then change them again in the css
@@ -235,7 +265,7 @@ export default Loginpage;
 //           <div className="form-group">
 //           <label className='user-label' htmlFor="username">
 //             Username:
-//             <input 
+//             <input
 //               id="username"
 //               className='input-user'
 //               type="text"
