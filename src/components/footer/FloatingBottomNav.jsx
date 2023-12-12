@@ -2,9 +2,35 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
+import axios from "axios";
 
 const FloatingBottomNav = () => {
   const [open, setOpen] = useState(false);
+  const handleLogout = async () => {
+    try {
+      await axios.post("/api/logout/"); // Replace with your Django logout URL
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    if (
+      window.confirm(
+        "Are you sure you want to delete your account? This action cannot be undone."
+      )
+    ) {
+      try {
+        await axios.delete("/api/delete_account/");
+        alert("Your account has been successfully deleted.");
+        window.location.href = "/";
+      } catch (error) {
+        console.error("Account deletion failed:", error);
+        alert("There was a problem deleting your account. Please try again.");
+      }
+    }
+  };
 
   return (
     <div className="fixed bottom-0 w-50 left-1/2 transform -translate-x-1/2 p-2 flex items-center justify-center">

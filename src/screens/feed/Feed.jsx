@@ -5,13 +5,16 @@ import "../../components/Nav-feed.css";
 import FloatingBottomNav from "../../components/footer/FloatingBottomNav.jsx";
 
 function Feed({ posts }) {
+  const sortedPosts = posts.slice().sort((a, b) => {
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
+
   return (
     <div>
       <NavFeed />
-      <h1>This is the Feed page</h1>
       <div>
-        {posts.map((post) => (
-          <Post post={post} />
+        {sortedPosts.map((post) => (
+          <Post key={post.id} post={post} />
         ))}
       </div>
       <FloatingBottomNav />
