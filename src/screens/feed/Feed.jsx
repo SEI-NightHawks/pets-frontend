@@ -1,17 +1,19 @@
 import Post from "../../components/Post/Post.jsx";
-import NavFeed from "../../components/Nav-feed.jsx";
+import NavRest from "../../components/Nav-rest.jsx";
 import "./feed.css";
-import "../../components/Nav-feed.css";
 import FloatingBottomNav from "../../components/footer/FloatingBottomNav.jsx";
 
 function Feed({ posts }) {
+  const sortedPosts = posts.slice().sort((a, b) => {
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
+
   return (
     <div>
-      <NavFeed />
-      <h1>This is the Feed page</h1>
+      <NavRest />
       <div>
-        {posts.map((post) => (
-          <Post post={post} />
+        {sortedPosts.map((post) => (
+          <Post key={post.id} post={post} />
         ))}
       </div>
       <FloatingBottomNav />

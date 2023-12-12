@@ -14,7 +14,18 @@
   align-items: center;
 }
 
-.logo-image-upload {
+.logo-image-feed {
   width: 95px;
-  margin-left: 670px;
+  margin-left: 660px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  margin-left: 990px;
+}
+
+.search-container input {
+  margin-right: 10px;
 }
