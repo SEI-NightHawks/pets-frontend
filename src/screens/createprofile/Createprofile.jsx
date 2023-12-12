@@ -209,6 +209,17 @@ const Form = ({
           >
             Submit
           </motion.button>
+
+          {/* <motion.button
+            variants={primaryVariants}
+            whileTap={{
+              scale: 0.985,
+            }}
+            type="submit"
+            className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
+          >
+            Back
+          </motion.button> */}
         </form>
       </div>
     </motion.div>
