@@ -41,10 +41,10 @@ function Upload({ primaryPet }) {
   };
 
   return (
-    <div className="vh-100 justify-content-center d-flex flex-column align-items-center bg-light">
+    <div className="vh-full justify-content-center d-flex flex-column align-items-center bg-light">
   <NavUpload />
   <div className="text-center justify-center p-md-30 w-80">
-  <div className="bg-white vh-100 p-3 p-md-5 rounded w-100 w-md-75">
+  <div className="bg-white vh-100 p-3 p-md-5 rounded w-300 mx-auto">
       <h2 className="text-center mb-10 p-3">Upload Image</h2>
       <input
         type="text"
