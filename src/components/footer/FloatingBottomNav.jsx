@@ -97,29 +97,19 @@ const Menu = () => {
       style={{ transformOrigin: "bottom", x: "-50%" }}
       className="p-8 bg-white shadow-lg absolute bottom-[125%] left-[50%] flex w-[calc(100vw_-_48px)] max-w-lg"
     >
-      <div className="flex flex-col gap-2 w-1/3">
-        <SectionTitle text="Men" />
-        <MenuLink text="Athletic" />
-        <MenuLink text="Golf" />
-        <MenuLink text="Basketball" />
-        <MenuLink text="Running" />
-      </div>
-      <div className="flex flex-col gap-2 w-1/3">
-        <SectionTitle text="Women" />
-        <MenuLink text="Tops" />
-        <MenuLink text="Pants" />
-        <MenuLink text="Running" />
-        <MenuLink text="Leisure" />
-        <MenuLink text="Sports Bras" />
-      </div>
-      <div className="flex flex-col gap-2 w-1/3">
-        <SectionTitle text="Kids" />
-        <MenuLink text="Toddler" />
-        <MenuLink text="Back to school" />
-        <MenuLink text="Shirts" />
-        <MenuLink text="Shorts" />
-        <MenuLink text="Cleats" />
-        <MenuLink text="Winter" />
+      <div className="flex flex-col gap-2 w-full">
+        <RouterLink to="/createprofile">
+          <MenuLink text="Add Account" />
+        </RouterLink>
+        <RouterLink to="/switchpets">
+          <MenuLink text="Switch Pets" />
+        </RouterLink>
+        <RouterLink to="/">
+          <MenuLink text="Log Out" />
+        </RouterLink>
+        <RouterLink to="/">
+          <MenuLink text="Delete Account" />
+        </RouterLink>
       </div>
     </motion.div>
   );

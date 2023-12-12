@@ -1,0 +1,183 @@
+.challenge {
+  width: 1090px;
+  margin: -10px auto;
+  display: grid;
+  grid-template-rows: 100px 200px 400px 100px;
+  grid-template-columns: 250px 250px 300px 200px;
+  grid-gap: 30px;
+  background-color: #f0f0f0;
+  grid-template-areas:
+    "head head head head"
+    "box-1 box-2 box-3 side"
+    "main main main main"
+    "foot foot foot foot";
+}
+
+.challenge > * {
+  background-color: #0095f6;
+  padding: 20px;
+  color: white;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+.challenge h1 {
+  color: #000;
+  text-align: center;
+  margin-top: -10px;
+}
+.challenge ul li {
+  list-style-type: none;
+}
+
+.challenge .header {
+  grid-area: head;
+}
+
+.challenge .small-box-1 {
+  grid-area: box-1;
+  background-color: #f0f0f0;
+  /* border: 3px solid red; */
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* This will make it round */
+  object-fit: cover; /* This will ensure the image covers the area without stretching */
+  object-position: center; /* This will focus on the center of the image */
+  margin-top: -20px;
+}
+
+.challenge .small-box-2 {
+  grid-area: box-2;
+  color: gray;
+  background-color: #f0f0f0;
+  /* border: 3px solid yellow; */
+}
+
+.small-box-2 ul li {
+  color: gray;
+  font-size: 23px;
+  margin-top: 7px;
+}
+.follow-btn-on-pp {
+  background-color: #0095f6;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.6em 2em;
+  font-size: 1rem;
+  border: none; /* No border */
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.challenge .small-box-3 {
+  grid-area: box-3;
+  background-color: #f0f0f0;
+
+  /* border: 3px solid purple; */
+}
+
+.small-box-3 ul li {
+  color: gray;
+  font-size: 23px;
+  margin-top: 7px;
+}
+
+.challenge .sidebar {
+  grid-area: side;
+  background-color: #f0f0f0;
+  /* border: 3px solid pink; */
+}
+
+/******/
+
+.edit-profile-btn {
+  background-color: #fff;
+  color: #0095f6;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border: none; /* No border */
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-btn:hover {
+  background-color: #d3c7c7; /* Darker gray on hover */
+}
+
+.post-btn-on-pp {
+  background-color: #fff;
+  color: #0095f6;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border: none; /* No border */
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.post-btn-on-pp:hover {
+  background-color: #d3c7c7; /* Darker gray on hover */
+}
+
+.challenge .main-content {
+  grid-area: main;
+  border-top: 5px solid #0095f6;
+  background-color: #f0f0f0;
+}
+
+.image-list {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.image-list li {
+  margin: 10px;
+}
+
+.image-list img {
+  display: block;
+  max-width: 200px;
+  height: 200px;
+  margin-bottom: 5px;
+}
+
+.like-btn {
+  background-color: #0095f6;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.6em 2em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.love-btn {
+  background-color: pink;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.6em 2em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.challenge .footer {
+  grid-area: foot;
+  text-align: center;
+  font-size: 20px;
+  color: #000;
+}
