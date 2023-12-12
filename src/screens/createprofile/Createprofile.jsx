@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPet } from "../../services/pet";
 import { motion } from "framer-motion";
-import NavCreateProfile from "../../components/Nav-create-profile";
 import "../../App.css";
+import NavCreateProfile from "../../components/Nav-create-profile";
 
 const Profile = ({ user, setPets }) => {
   const [petSpecies, setPetSpecies] = useState("");
@@ -59,7 +59,6 @@ const Profile = ({ user, setPets }) => {
         onAddPet={addPet}
       />
     </section>
-
   );
 };
 
@@ -207,6 +206,17 @@ const Form = ({
           >
             Submit
           </motion.button>
+
+          {/* <motion.button
+            variants={primaryVariants}
+            whileTap={{
+              scale: 0.985,
+            }}
+            type="submit"
+            className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
+          >
+            Back
+          </motion.button> */}
         </form>
       </div>
     </motion.div>
