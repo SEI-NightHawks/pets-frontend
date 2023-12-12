@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../../services/users";
-import NavSignup from "../../components/Nav-signup";
+import NavMain from "../../components/Nav-main";
 // import "../../tailwind/tailwind.css";
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiStar } from "react-icons/fi";
@@ -10,7 +10,7 @@ import "../../App.css";
 const Signup = ({ setUser }) => {
   return (
     <div>
-      <NavSignup />
+      <NavMain />
       <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
         <Logo />
         <Form setUser={setUser} />

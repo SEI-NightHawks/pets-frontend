@@ -1,10 +1,36 @@
-import {AnimatePresence, motion} from "framer-motion";
-import {useState} from "react";
-import {Link as RouterLink} from "react-router-dom";
-import {FiUpload, FiMenu, FiHome, FiX, FiUser} from "react-icons/fi";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
+import axios from "axios";
 
 const FloatingBottomNav = () => {
   const [open, setOpen] = useState(false);
+  const handleLogout = async () => {
+    try {
+      await axios.post("/api/logout/"); // Replace with your Django logout URL
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    if (
+      window.confirm(
+        "Are you sure you want to delete your account? This action cannot be undone."
+      )
+    ) {
+      try {
+        await axios.delete("/api/delete_account/");
+        alert("Your account has been successfully deleted.");
+        window.location.href = "/";
+      } catch (error) {
+        console.error("Account deletion failed:", error);
+        alert("There was a problem deleting your account. Please try again.");
+      }
+    }
+  };
 
   return (
     <div className="fixed bottom-0 w-50 left-1/2 transform -translate-x-1/2 p-2 flex items-center justify-center">
@@ -34,7 +60,7 @@ const FloatingBottomNav = () => {
   );
 };
 
-const CustomLink = ({text, Icon}) => {
+const CustomLink = ({ text, Icon }) => {
   return (
     <a
       href=""
@@ -47,15 +73,15 @@ const CustomLink = ({text, Icon}) => {
   );
 };
 
-const MenuButton = ({open, setOpen}) => {
+const MenuButton = ({ open, setOpen }) => {
   return (
     <div
       onClick={() => setOpen((pv) => !pv)}
       className="text-xl font-bold h-full bg-black text-white"
     >
       <motion.button
-        whileHover={{scale: 1.3}}
-        whileTap={{scale: 0.9}}
+        whileHover={{ scale: 1.3 }}
+        whileTap={{ scale: 0.9 }}
         className="p-4"
       >
         <AnimatePresence mode="wait">
@@ -67,7 +93,7 @@ const MenuButton = ({open, setOpen}) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{duration: 0.125, ease: "linear"}}
+              transition={{ duration: 0.125, ease: "linear" }}
             >
               <FiX />
             </motion.span>
@@ -79,7 +105,7 @@ const MenuButton = ({open, setOpen}) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{duration: 0.125, ease: "linear"}}
+              transition={{ duration: 0.125, ease: "linear" }}
             >
               <FiMenu />
             </motion.span>
@@ -94,38 +120,28 @@ const Menu = () => {
   return (
     <motion.div
       variants={menuVariants}
-      style={{transformOrigin: "bottom", x: "-50%"}}
+      style={{ transformOrigin: "bottom", x: "-50%" }}
       className="p-8 bg-white shadow-lg absolute bottom-[125%] left-[50%] flex w-[calc(100vw_-_48px)] max-w-lg"
     >
-      <div className="flex flex-col gap-2 w-1/3">
-        <SectionTitle text="Men" />
-        <MenuLink text="Athletic" />
-        <MenuLink text="Golf" />
-        <MenuLink text="Basketball" />
-        <MenuLink text="Running" />
-      </div>
-      <div className="flex flex-col gap-2 w-1/3">
-        <SectionTitle text="Women" />
-        <MenuLink text="Tops" />
-        <MenuLink text="Pants" />
-        <MenuLink text="Running" />
-        <MenuLink text="Leisure" />
-        <MenuLink text="Sports Bras" />
-      </div>
-      <div className="flex flex-col gap-2 w-1/3">
-        <SectionTitle text="Kids" />
-        <MenuLink text="Toddler" />
-        <MenuLink text="Back to school" />
-        <MenuLink text="Shirts" />
-        <MenuLink text="Shorts" />
-        <MenuLink text="Cleats" />
-        <MenuLink text="Winter" />
+      <div className="flex flex-col gap-2 w-full">
+        <RouterLink to="/createprofile">
+          <MenuLink text="Add Account" />
+        </RouterLink>
+        <RouterLink to="/switchpets">
+          <MenuLink text="Switch Pets" />
+        </RouterLink>
+        <RouterLink to="/">
+          <MenuLink text="Log Out" />
+        </RouterLink>
+        <RouterLink to="/">
+          <MenuLink text="Delete Account" />
+        </RouterLink>
       </div>
     </motion.div>
   );
 };
 
-const SectionTitle = ({text}) => {
+const SectionTitle = ({ text }) => {
   return (
     <motion.h4
       variants={menuLinkVariants}
@@ -136,7 +152,7 @@ const SectionTitle = ({text}) => {
   );
 };
 
-const MenuLink = ({text}) => {
+const MenuLink = ({ text }) => {
   return (
     <motion.a
       variants={menuLinkVariants}
@@ -152,9 +168,9 @@ const MenuLink = ({text}) => {
 export default FloatingBottomNav;
 
 const iconVariants = {
-  initial: {rotate: 180, opacity: 0},
-  animate: {rotate: 0, opacity: 1},
-  exit: {rotate: -180, opacity: 0},
+  initial: { rotate: 180, opacity: 0 },
+  animate: { rotate: 0, opacity: 1 },
+  exit: { rotate: -180, opacity: 0 },
 };
 
 const menuVariants = {

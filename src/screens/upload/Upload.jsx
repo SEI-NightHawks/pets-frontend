@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./upload.css";
-import NavUpload from "../../components/Nav-upload.jsx";
+import NavMain from "../../components/Nav-main.jsx";
 import { createPost } from "../../services/posts.js";
 import { useNavigate } from "react-router-dom";
 import FloatingBottomNav from "../../components/footer/FloatingBottomNav.jsx";
@@ -41,57 +41,57 @@ function Upload({ primaryPet }) {
   };
 
   return (
-    <div className="flex flex-col items-center bg-light min-h-screen">
-      <div className="w-full">
-        <NavUpload />
-      </div>
-      <div className="text-center px-35 md:px-10 w-100 mt-5">
-        {" "}
-        <div className="bg-white p-3 md:p-5 rounded w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto">
-          <h2 className="text-center mb-4 p-3">Upload Image</h2>
-          <input
-            type="text"
-            className="form-control mb-3"
-            placeholder="Paste image URL"
-            onChange={handleUrl}
-          />
-          <div className="progress mb-3">
-            <div
-              className="progress-bar progress-bar-striped progress-bar-animated"
-              role="progressbar"
-              aria-valuenow={progressBar}
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style={{ width: `${progressBar}%` }}
-            ></div>
-          </div>
-          {image && (
-            <img
-              src={image}
-              className="img-fluid mx-auto mt-3"
-              alt="Uploaded"
-              style={{ maxHeight: "300px" }}
+    <>
+      <NavMain />
+      <div className="vh-100 justify-content-center d-flex flex-column align-items-center bg-light">
+        <div className="text-center justify-center p-md-30 w-80">
+          <div className="bg-white vh-100 p-3 p-md-5 rounded w-100 w-md-75">
+            <h2 className="text-center mb-10 p-3">Upload Image</h2>
+            <input
+              type="text"
+              className="form-control mb-3"
+              placeholder="Paste image URL"
+              onChange={handleUrl}
             />
-          )}
-          <input
-            type="text"
-            className="form-control mt-3"
-            placeholder="Caption"
-            value={content}
-            onChange={handleContent}
-          />
-          <button className="btn custom-btn mt-3" onClick={handlePost}>
-            Post
-          </button>
-          {caption && (
-            <div className="mt-3">
-              <strong>Caption:</strong> {caption}
+            <div className="progress mb-3">
+              <div
+                className="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar"
+                aria-label="progressbar"
+                aria-valuenow={progressBar}
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: `${progressBar}%` }}
+              ></div>
             </div>
-          )}
-          <FloatingBottomNav />
+            {image && (
+              <img
+                src={image}
+                className="img-fluid mx-auto mt-3"
+                alt="Uploaded"
+                style={{ maxHeight: "300px" }}
+              />
+            )}
+            <input
+              type="text"
+              className="form-control mt-3"
+              placeholder="Caption"
+              value={content}
+              onChange={handleContent}
+            />
+            <button className="btn custom-btn mt-3" onClick={handlePost}>
+              Post
+            </button>
+            {caption && (
+              <div className="mt-3">
+                <strong>Caption:</strong> {caption}
+              </div>
+            )}
+            <FloatingBottomNav />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
