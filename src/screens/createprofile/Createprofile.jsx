@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { createPet } from "../../services/pet";
 import { motion } from "framer-motion";
 import "../../App.css";
 
-const Profile = () => {
-  const [pets, setPets] = useState([]);
+const Profile = ({ user, setPets }) => {
   const [petSpecies, setPetSpecies] = useState("");
   const [breed, setBreed] = useState("");
   const [age, setAge] = useState("");
@@ -11,17 +12,23 @@ const Profile = () => {
   const [gender, setGender] = useState("");
   const [name, setName] = useState("");
 
-  const addPet = (e) => {
+  let navigate = useNavigate();
+
+  const addPet = async (e) => {
     e.preventDefault();
     const newPet = {
       species: petSpecies,
       breed: breed,
-      Age: age,
-      profile_Img: profile_Img,
+      age: parseInt(age),
+      profile_img: profile_Img,
       gender: gender,
       name: name,
+      owner: user.user.id,
     };
-    setPets([...pets, newPet]);
+
+    await createPet(newPet);
+    setPets((prevPets) => [...prevPets, newPet]);
+    navigate("/feed");
   };
 
   return (
