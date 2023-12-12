@@ -66,7 +66,7 @@ const App = () => {
         />
         <Route path="/feed" element={<NavFeed pets={pets} />} />{" "}
         <Route path="/modal" element={<NavModal />} />
-        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
         <Route
           path="/personal-profile"
           element={
