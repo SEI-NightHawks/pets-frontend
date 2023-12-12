@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../../services/users";
 import { useNavigate } from "react-router-dom";
-import NavLogin from "../../components/Nav-login";
+import NavMain from "../../components/Nav-main";
 // import "../../tailwind/tailwind.css";
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiStar } from "react-icons/fi";
@@ -10,7 +10,7 @@ import "../../App.css";
 const Loginpage = ({ setUser }) => {
   return (
     <div>
-      <NavLogin />
+      <NavMain />
       <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
         <Logo />
         <Form setUser={setUser} />

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPet } from "../../services/pet";
 import { motion } from "framer-motion";
-import NavCreateProfile from "../../components/Nav-create-profile";
+import NavRest from "../../components/Nav-rest.jsx";
 import "../../App.css";
 
 const Profile = ({ user, setPets }) => {
@@ -35,31 +35,33 @@ const Profile = ({ user, setPets }) => {
   const backgroundImageUrl =
     "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBldHN8ZW58MHx8MHx8fDA%3D";
   return (
-    <section
-      className="flex items-center justify-center min-h-screen bg-slate-50"
-      style={{
-        backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <Form
-        petSpecies={petSpecies}
-        breed={breed}
-        Age={age}
-        profile_Img={profile_Img}
-        gender={gender}
-        name={name}
-        onPetSpeciesChange={(value) => setPetSpecies(value)}
-        onBreedChange={(value) => setBreed(value)}
-        onAgeChange={(value) => setAge(value)}
-        onprofile_ImgChange={(value) => setprofile_Img(value)}
-        onNameChange={(value) => setName(value)}
-        onGenderChange={(value) => setGender(value)}
-        onAddPet={addPet}
-      />
-    </section>
-
+    <>
+      <NavRest />
+      <section
+        className="flex items-center justify-center min-h-screen bg-slate-50"
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <Form
+          petSpecies={petSpecies}
+          breed={breed}
+          Age={age}
+          profile_Img={profile_Img}
+          gender={gender}
+          name={name}
+          onPetSpeciesChange={(value) => setPetSpecies(value)}
+          onBreedChange={(value) => setBreed(value)}
+          onAgeChange={(value) => setAge(value)}
+          onprofile_ImgChange={(value) => setprofile_Img(value)}
+          onNameChange={(value) => setName(value)}
+          onGenderChange={(value) => setGender(value)}
+          onAddPet={addPet}
+        />
+      </section>
+    </>
   );
 };
 
@@ -207,6 +209,17 @@ const Form = ({
           >
             Submit
           </motion.button>
+
+          {/* <motion.button
+            variants={primaryVariants}
+            whileTap={{
+              scale: 0.985,
+            }}
+            type="submit"
+            className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
+          >
+            Back
+          </motion.button> */}
         </form>
       </div>
     </motion.div>
