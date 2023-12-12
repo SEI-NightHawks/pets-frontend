@@ -4,7 +4,6 @@ import { createPet } from "../../services/pet";
 import { motion } from "framer-motion";
 import NavRest from "../../components/Nav-rest.jsx";
 import "../../App.css";
-import NavCreateProfile from "../../components/Nav-create-profile";
 
 const Profile = ({ user, setPets }) => {
   const [petSpecies, setPetSpecies] = useState("");
