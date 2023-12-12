@@ -8,9 +8,10 @@ import Feed from "./screens/feed/Feed.jsx";
 import Upload from "./screens/upload/Upload.jsx";
 import LoginPage from "./screens/loginpage/Loginpage.jsx";
 import Signuppage from "./screens/signup/Signup.jsx";
-import Createprofile from "./screens/Createprofile.jsx";
+
+import Createprofile from "./screens/createprofile/Createprofile.jsx";
+//import NavFeed from "./components/Nav-feed.jsx";
 import Profile from "./screens/profile/Profile.jsx";
-import DevelopmentPage from "./screens/DevelopmentPage.jsx";
 import "./App.css";
 
 // import Bottomfooter from './components/footer/FloatingBottomNav.jsx';
@@ -58,6 +59,10 @@ const App = () => {
           path="/createprofile"
           element={<Createprofile user={user} setPets={setPets} />}
         />
+
+        {/* <Route path="/feed" element={<NavFeed pets={pets} />} />{" "} */}
+        {/* <Route path="/profile" element={<Profile />} /> */}
+
         <Route
           path="/profile"
           element={<Profile setPrimaryPet={setPrimaryPet} pets={pets} />}

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createPet } from "../services/pet";
+import { createPet } from "../../services/pet";
 import { motion } from "framer-motion";
-import NavCreateProfile from "../components/Nav-create-profile";
-import "../App.css";
+import NavCreateProfile from "../../components/Nav-create-profile";
+import "../../App.css";
 
 const Profile = ({ user, setPets }) => {
   const [petSpecies, setPetSpecies] = useState("");
@@ -213,3 +213,63 @@ const Form = ({
 };
 
 export default Profile;
+
+// const Profile = () => {
+//  const [pets, setPets] = useState([]);
+//  const [petSpecies, setPetSpecies] = useState("");
+//  const [breed, setBreed] = useState("");
+//  const [Age, setAge] = useState("");
+//  const [profile_Img, setprofile_Img] = useState(null);
+
+//  const addPet = (e) => {
+//     e.preventDefault();
+//     const newPet = {
+//       species: petSpecies,
+//       breed: breed,
+//       Age: Age,
+//       profile_Img: profile_Img,
+//     };
+//     setPets([...pets, newPet]);
+//  };
+
+//  return (
+//     <div >
+//       <form onSubmit={addPet}>
+//         <label>
+//           Species:
+//           <input
+//             type="text"
+//             value={petSpecies}
+//             onChange={(e) => setPetSpecies(e.target.value)}
+//           />
+//         </label>
+//         <label>
+//           Breed:
+//           <input
+//             type="text"
+//             value={breed}
+//             onChange={(e) => setBreed(e.target.value)}
+//           />
+//         </label>
+//         <label>
+//           Date of Birth:
+//           <input
+//             type="date"
+//             value={Age}
+//             onChange={(e) => setAge(e.target.value)}
+//           />
+//         </label>
+//         <label>
+//           Profile Pet Picture:
+//           <input
+//             type="file"
+//             onChange={handleprofile_ImgChange}
+//           />
+//         </label>
+//         <button type="submit">Add Pet</button>
+//       </form>
+//     </div>
+//  );
+// };
+
+// export default Profile;
