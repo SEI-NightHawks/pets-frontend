@@ -1,31 +1,32 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-
-import {
-  FiUpload,
-  FiMenu,
-  FiHome,
-  FiX,
-  FiUser,
-} from "react-icons/fi";
-
+import {AnimatePresence, motion} from "framer-motion";
+import {useState} from "react";
+import {Link as RouterLink} from "react-router-dom";
+import {FiUpload, FiMenu, FiHome, FiX, FiUser} from "react-icons/fi";
 
 const FloatingBottomNav = () => {
   const [open, setOpen] = useState(false);
-  
 
   return (
-    <div className="h-[400px] bg-white relative">
+    <div className="fixed bottom-0 w-50 left-1/2 transform -translate-x-1/2 p-2 flex items-center justify-center">
       <motion.nav
         animate={open ? "open" : "closed"}
         initial="closed"
-        className="bg-white text-black shadow-lg flex items-center justify-between absolute bottom-8 left-[50%] -translate-x-[50%]"
+        className="bg-white text-black shadow-lg flex items-center"
       >
         <MenuButton setOpen={setOpen} open={open} />
-        <div className="flex gap-6 px-6">
-          <Link to='/feed' text="Home" Icon={FiHome} />
-          <Link to='/upload' text="Post" Icon={FiUpload} />
-          <Link to='/profile' text="Profile" Icon={FiUser} />
+        <div className="flex gap-3">
+          <RouterLink to="/feed">
+            <CustomLink text="Home" Icon={FiHome} />
+          </RouterLink>
+          <RouterLink to="/upload">
+            <CustomLink text="Post" Icon={FiUpload} />
+          </RouterLink>
+          <RouterLink to="/profile">
+            <CustomLink text="Profile" Icon={FiUser} />
+          </RouterLink>
+          <RouterLink to="/profile">
+            <CustomLink text="Message" Icon={FiUser} />
+          </RouterLink>
         </div>
         <Menu />
       </motion.nav>
@@ -33,12 +34,12 @@ const FloatingBottomNav = () => {
   );
 };
 
-const Link = ({ text, Icon }) => {
+const CustomLink = ({text, Icon}) => {
   return (
     <a
-      href="#"
+      href=""
       rel="nofollow"
-      className="text-sm w-12 hover:text-indigo-500 transition-colors flex flex-col gap-1 items-center"
+      className="text-sm w-16 hover:text-indigo-500 transition-colors flex flex-col gap-2 items-center"
     >
       <Icon />
       <span className="text-xs">{text}</span>
@@ -46,15 +47,15 @@ const Link = ({ text, Icon }) => {
   );
 };
 
-const MenuButton = ({ open, setOpen }) => {
+const MenuButton = ({open, setOpen}) => {
   return (
     <div
       onClick={() => setOpen((pv) => !pv)}
       className="text-xl font-bold h-full bg-black text-white"
     >
       <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{scale: 1.3}}
+        whileTap={{scale: 0.9}}
         className="p-4"
       >
         <AnimatePresence mode="wait">
@@ -66,7 +67,7 @@ const MenuButton = ({ open, setOpen }) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.125, ease: "linear" }}
+              transition={{duration: 0.125, ease: "linear"}}
             >
               <FiX />
             </motion.span>
@@ -78,7 +79,7 @@ const MenuButton = ({ open, setOpen }) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{ duration: 0.125, ease: "linear" }}
+              transition={{duration: 0.125, ease: "linear"}}
             >
               <FiMenu />
             </motion.span>
@@ -93,7 +94,7 @@ const Menu = () => {
   return (
     <motion.div
       variants={menuVariants}
-      style={{ transformOrigin: "bottom", x: "-50%" }}
+      style={{transformOrigin: "bottom", x: "-50%"}}
       className="p-8 bg-white shadow-lg absolute bottom-[125%] left-[50%] flex w-[calc(100vw_-_48px)] max-w-lg"
     >
       <div className="flex flex-col gap-2 w-1/3">
@@ -124,7 +125,7 @@ const Menu = () => {
   );
 };
 
-const SectionTitle = ({ text }) => {
+const SectionTitle = ({text}) => {
   return (
     <motion.h4
       variants={menuLinkVariants}
@@ -135,7 +136,7 @@ const SectionTitle = ({ text }) => {
   );
 };
 
-const MenuLink = ({ text }) => {
+const MenuLink = ({text}) => {
   return (
     <motion.a
       variants={menuLinkVariants}
@@ -151,9 +152,9 @@ const MenuLink = ({ text }) => {
 export default FloatingBottomNav;
 
 const iconVariants = {
-  initial: { rotate: 180, opacity: 0 },
-  animate: { rotate: 0, opacity: 1 },
-  exit: { rotate: -180, opacity: 0 },
+  initial: {rotate: 180, opacity: 0},
+  animate: {rotate: 0, opacity: 1},
+  exit: {rotate: -180, opacity: 0},
 };
 
 const menuVariants = {
@@ -184,6 +185,5 @@ const menuLinkVariants = {
   },
 };
 
-
-
-
+// h-[200px]
+// left-1/2 transform -translate-x-1/2 w-50
