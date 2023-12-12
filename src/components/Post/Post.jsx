@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Post.css";
 import Heart from "react-animated-heart";
-
 function Post({ post }) {
   const [isLiked, setIsLiked] = useState(false);
 
