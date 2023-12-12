@@ -86,6 +86,7 @@ function Upload() {
       )}
       <FloatingBottomNav />
     </div>
+    
   </div>
 </div>
   );

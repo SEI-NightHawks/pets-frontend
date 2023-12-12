@@ -7,14 +7,14 @@ const FloatingBottomNav = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-0 bg-white left-1/2 transform -translate-x-1/2 w-50">
+    <div className="fixed bottom-0 w-50 left-1/2 transform -translate-x-1/2 p-2 flex items-center justify-center">
       <motion.nav
         animate={open ? "open" : "closed"}
         initial="closed"
         className="bg-white text-black shadow-lg flex items-center"
       >
         <MenuButton setOpen={setOpen} open={open} />
-        <div className="flex gap-6">
+        <div className="flex gap-3">
           <RouterLink to="/feed">
             <CustomLink text="Home" Icon={FiHome} />
           </RouterLink>
@@ -25,7 +25,7 @@ const FloatingBottomNav = () => {
             <CustomLink text="Profile" Icon={FiUser} />
           </RouterLink>
           <RouterLink to="/profile">
-            <CustomLink text="Messaging" Icon={FiUser} />
+            <CustomLink text="Message" Icon={FiUser} />
           </RouterLink>
         </div>
         <Menu />
@@ -39,7 +39,7 @@ const CustomLink = ({text, Icon}) => {
     <a
       href=""
       rel="nofollow"
-      className="text-sm w-12 hover:text-indigo-500 transition-colors flex flex-col gap-2 items-center"
+      className="text-sm w-16 hover:text-indigo-500 transition-colors flex flex-col gap-2 items-center"
     >
       <Icon />
       <span className="text-xs">{text}</span>
@@ -186,3 +186,4 @@ const menuLinkVariants = {
 };
 
 // h-[200px]
+// left-1/2 transform -translate-x-1/2 w-50
