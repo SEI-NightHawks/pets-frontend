@@ -17,6 +17,7 @@ import NavModal from "./components/Nav-modal.jsx";
 import Profile from "./screens/profile/Profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
+import NavProfile from "./components/Nav-profile.jsx";
 import "./App.css";
 // import Bottomfooter from './components/footer/FloatingBottomNav.jsx';
 const App = () => {
