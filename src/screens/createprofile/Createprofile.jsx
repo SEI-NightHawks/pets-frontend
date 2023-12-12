@@ -156,14 +156,19 @@ const Form = ({
           <label className="mb-1 inline-block text-sm font-medium">
             Gender <span className="text-red-600">*</span>
           </label>
-          <input
-            type="input"
-            placeholder="Pet's Gender"
+          <select
             className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
             value={gender}
             onChange={(e) => onGenderChange(e.target.value)}
             required
-          />
+          >
+            <option value="" disabled>
+              Select Gender
+            </option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+            <option value="not_specified">not specified</option>
+          </select>
         </motion.div>
 
         <motion.div variants={primaryVariants} className="mb-4 w-full">
