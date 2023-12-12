@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./upload.css";
 import NavUpload from "../../components/Nav-upload.jsx";
 import { createPost } from "../../services/posts.js";
+import { useNavigate } from "react-router-dom";
 
-function Upload() {
+function Upload({ primaryPet }) {
   const [image, setImage] = useState("");
   const [content, setContent] = useState("");
   const [caption, setCaption] = useState("");
   const [progressBar, setProgressBar] = useState(0);
+
+  let navigate = useNavigate();
 
   const handleUrl = (event) => {
     const url = event.target.value;
@@ -30,8 +33,10 @@ function Upload() {
     await createPost({
       content,
       post_image: image,
-      pet: 1,
+      pet: primaryPet.id,
     });
+
+    navigate("/feed");
   };
 
   return (

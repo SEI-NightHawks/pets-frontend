@@ -26,8 +26,12 @@ const App = () => {
   const [primaryPet, setPrimaryPet] = useState(null);
 
   useEffect(() => {
-    fetchUser();
-    // fetchPets();
+    const token = localStorage.getItem("token");
+    if (token) {
+      fetchUser();
+      fetchPets();
+    }
+
     fetchPosts();
   }, []);
 
@@ -39,6 +43,7 @@ const App = () => {
   async function fetchPets() {
     const allPets = await getMyPets();
     setPets(allPets);
+    setPrimaryPet(allPets[0]);
   }
 
   async function fetchPosts() {
@@ -55,12 +60,20 @@ const App = () => {
         {/* <Route path="/login" element={<NavLogin />} /> */}
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/signup" element={<Signuppage setUser={setUser} />} />
-        <Route path="/createprofile" element={<Createprofile />} />
+        <Route
+          path="/createprofile"
+          element={<Createprofile user={user} setPets={setPets} />}
+        />
         <Route path="/feed" element={<NavFeed pets={pets} />} />{" "}
         <Route path="/modal" element={<NavModal />} />
         <Route path="/profile" element={<NavProfile />} />
-        <Route path="/personal-profile" element={<NavPersonalProfile />} />
-        <Route path="/upload" element={<Upload />} />
+        <Route
+          path="/personal-profile"
+          element={
+            <NavPersonalProfile setPrimaryPet={setPrimaryPet} pets={pets} />
+          }
+        />
+        <Route path="/upload" element={<Upload primaryPet={primaryPet} />} />
       </Routes>
     </div>
   );
