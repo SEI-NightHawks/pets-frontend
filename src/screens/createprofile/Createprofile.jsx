@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPet } from "../../services/pet";
 import { motion } from "framer-motion";
+import NavCreateProfile from "../../components/Nav-create-profile";
 import "../../App.css";
 
 const Profile = ({ user, setPets }) => {
@@ -58,6 +59,7 @@ const Profile = ({ user, setPets }) => {
         onAddPet={addPet}
       />
     </section>
+
   );
 };
 

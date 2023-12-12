@@ -2,7 +2,7 @@ import Post from "../../components/Post/Post.jsx";
 import NavFeed from "../../components/Nav-feed.jsx";
 import "./feed.css";
 import "../../components/Nav-feed.css";
-import FloatingBottomNav from '../../components/footer/FloatingBottomNav.jsx';
+import FloatingBottomNav from "../../components/footer/FloatingBottomNav.jsx";
 
 function Feed({ posts }) {
   return (

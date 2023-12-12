@@ -5,9 +5,7 @@
 }
 
 .navbar {
-  background-color: #0089ad;
-  color: #fff;
-  padding: 10px;
+  background-color: whitesmoke;
 }
 
 .nav-container {
@@ -16,30 +14,7 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.logo-image {
-  margin-left: 295px;
-}
-
-.profile-icon {
-  width: 60px;
-}
-
-.icon {
-  margin-left: 40px;
-  width: 40px;
-  height: 50px;
-}
-
-.profile-icon {
-  margin-left: 650px;
-}
-
-.envelope-icon {
-  margin-right: 40px;
-  margin-top: 10px;
+.logo-image-modal {
+  margin-left: 660px;
+  width: 95px;
 }
