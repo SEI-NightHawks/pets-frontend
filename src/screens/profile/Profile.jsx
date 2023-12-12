@@ -65,7 +65,7 @@ const Profile = () => {
       </div>
       <div className="main-content">
         <ul className="image-list">
-          {pets.map(pet => (
+          {pets.map((pet) => (
             <li>
               <img src={pet.post_image} alt="post" />
               <button className="like-btn">Like</button>
@@ -96,92 +96,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
-// import React from "react";
-// import "./profile.css";
-
-// const Profile = () => {
-//   const posts = [
-//     { imageUrl: "path-to-post1.jpg", caption: "Sunny day", likes: 120 },
-//     { imageUrl: "path-to-post2.jpg", caption: "I mean business", likes: 250 },
-//     // ... add more posts as needed
-//   ];
-
-//   return (
-//     <div className="profileContainer">
-//       <header className="profileHeader">
-//         <img
-//           src="path-to-profile-picture.jpg"
-//           alt="Dumbledore"
-//           className="profilePhoto"
-//         />
-//         <div className="profileStats">
-//           <h2>DUMBLEDOOR (Boy)</h2>
-//           <strong>26 Posts</strong>
-//           <strong>10k Followers</strong>
-//           <strong>0 Following</strong>
-//         </div>
-//         <button className="followButton">Follow</button>
-//       </header>
-
-//       <div className="postGrid">
-//         {posts.map((post, index) => (
-//           <div key={index} className="post">
-//             <img src={post.imageUrl} alt={post.caption} className="postImage" />
-//             <div className="postInfo">
-//               <span className="likes">{post.likes} likes</span>
-//               <span className="caption">{post.caption}</span>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Profile;
-
-// // import "./profile.css";
-// // import React from "react";
-// // import styles from "./profile.css";
-
-// // const Profile = () => {
-// //   // Placeholder data, replace with your own data
-// //   const posts = [
-// //     { imageUrl: "path-to-post1.jpg", caption: "Sunny day", likes: 120 },
-// //     { imageUrl: "path-to-post2.jpg", caption: "I mean business", likes: 250 },
-// //     // Add more posts as needed
-// //   ];
-
-// //   return (
-// //     <div className={styles.profileContainer}>
-// //       <header className={styles.profileHeader}>
-// //         <img
-// //           src="path-to-profile-picture.jpg"
-// //           alt="Dumbledore"
-// //           className={styles.profilePhoto}
-// //         />
-// //         <div className={styles.profileStats}>
-// //           <strong>967 Posts</strong>
-// //           <strong>10k Followers</strong>
-// //           <strong>0 Followings</strong>
-// //         </div>
-// //         <button className={styles.followButton}>Follow</button>
-// //       </header>
-
-// //       <div className={styles.postGrid}>
-// //         {posts.map((post, index) => (
-// //           <div key={index} className={styles.post}>
-// //             <img src={post.imageUrl} alt={post.caption} />
-// //             <div className={styles.postInfo}>
-// //               <span className={styles.likes}>{post.likes} likes</span>
-// //               <span className={styles.caption}>{post.caption}</span>
-// //             </div>
-// //           </div>
-// //         ))}
-// //       </div>
-// //     </div>
-// //   );
-// // };
-
-// // export default Profile;
