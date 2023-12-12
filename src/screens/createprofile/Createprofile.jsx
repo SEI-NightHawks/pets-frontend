@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPet } from "../../services/pet";
 import { motion } from "framer-motion";
+import NavCreateProfile from "../../components/Nav-create-profile";
 import "../../App.css";
 
 const Profile = ({ user, setPets }) => {
@@ -32,23 +33,26 @@ const Profile = ({ user, setPets }) => {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-screen bg-slate-50">
-      <Form
-        petSpecies={petSpecies}
-        breed={breed}
-        Age={age}
-        profile_Img={profile_Img}
-        gender={gender}
-        name={name}
-        onPetSpeciesChange={(value) => setPetSpecies(value)}
-        onBreedChange={(value) => setBreed(value)}
-        onAgeChange={(value) => setAge(value)}
-        onprofile_ImgChange={(value) => setprofile_Img(value)}
-        onNameChange={(value) => setName(value)}
-        onGenderChange={(value) => setGender(value)}
-        onAddPet={addPet}
-      />
-    </section>
+    <div>
+      <NavCreateProfile />
+      <section className="flex items-center justify-center min-h-screen bg-slate-50">
+        <Form
+          petSpecies={petSpecies}
+          breed={breed}
+          Age={age}
+          profile_Img={profile_Img}
+          gender={gender}
+          name={name}
+          onPetSpeciesChange={(value) => setPetSpecies(value)}
+          onBreedChange={(value) => setBreed(value)}
+          onAgeChange={(value) => setAge(value)}
+          onprofile_ImgChange={(value) => setprofile_Img(value)}
+          onNameChange={(value) => setName(value)}
+          onGenderChange={(value) => setGender(value)}
+          onAddPet={addPet}
+        />
+      </section>
+    </div>
   );
 };
 

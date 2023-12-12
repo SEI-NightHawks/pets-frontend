@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaSearch, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import "./Nav-create-profile.css";
+import "./Nav-personal-profile.css";
 
 const NavPersonalProfile = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,10 +20,6 @@ const NavPersonalProfile = () => {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <div className="pet-info">
-            <span className="pet-name">Dumbledoor</span>
-            <span className="pet-gender">(Boy)</span>
-          </div>
           <div
             className="logo-image-personal-profile"
             onClick={handleImageClick}
