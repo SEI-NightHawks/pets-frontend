@@ -1,7 +1,7 @@
-import {AnimatePresence, motion} from "framer-motion";
-import {useState} from "react";
-import {Link as RouterLink} from "react-router-dom";
-import {FiUpload, FiMenu, FiHome, FiX, FiUser} from "react-icons/fi";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
 
 const FloatingBottomNav = () => {
   const [open, setOpen] = useState(false);
@@ -21,10 +21,10 @@ const FloatingBottomNav = () => {
           <RouterLink to="/upload">
             <CustomLink text="Post" Icon={FiUpload} />
           </RouterLink>
-          <RouterLink to="/profile">
+          <RouterLink to="/">
             <CustomLink text="Profile" Icon={FiUser} />
           </RouterLink>
-          <RouterLink to="/profile">
+          <RouterLink to="/">
             <CustomLink text="Message" Icon={FiUser} />
           </RouterLink>
         </div>
@@ -34,7 +34,7 @@ const FloatingBottomNav = () => {
   );
 };
 
-const CustomLink = ({text, Icon}) => {
+const CustomLink = ({ text, Icon }) => {
   return (
     <a
       href=""
@@ -47,15 +47,15 @@ const CustomLink = ({text, Icon}) => {
   );
 };
 
-const MenuButton = ({open, setOpen}) => {
+const MenuButton = ({ open, setOpen }) => {
   return (
     <div
       onClick={() => setOpen((pv) => !pv)}
       className="text-xl font-bold h-full bg-black text-white"
     >
       <motion.button
-        whileHover={{scale: 1.3}}
-        whileTap={{scale: 0.9}}
+        whileHover={{ scale: 1.3 }}
+        whileTap={{ scale: 0.9 }}
         className="p-4"
       >
         <AnimatePresence mode="wait">
@@ -67,7 +67,7 @@ const MenuButton = ({open, setOpen}) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{duration: 0.125, ease: "linear"}}
+              transition={{ duration: 0.125, ease: "linear" }}
             >
               <FiX />
             </motion.span>
@@ -79,7 +79,7 @@ const MenuButton = ({open, setOpen}) => {
               initial="initial"
               animate="animate"
               exit="exit"
-              transition={{duration: 0.125, ease: "linear"}}
+              transition={{ duration: 0.125, ease: "linear" }}
             >
               <FiMenu />
             </motion.span>
@@ -94,7 +94,7 @@ const Menu = () => {
   return (
     <motion.div
       variants={menuVariants}
-      style={{transformOrigin: "bottom", x: "-50%"}}
+      style={{ transformOrigin: "bottom", x: "-50%" }}
       className="p-8 bg-white shadow-lg absolute bottom-[125%] left-[50%] flex w-[calc(100vw_-_48px)] max-w-lg"
     >
       <div className="flex flex-col gap-2 w-1/3">
@@ -125,7 +125,7 @@ const Menu = () => {
   );
 };
 
-const SectionTitle = ({text}) => {
+const SectionTitle = ({ text }) => {
   return (
     <motion.h4
       variants={menuLinkVariants}
@@ -136,7 +136,7 @@ const SectionTitle = ({text}) => {
   );
 };
 
-const MenuLink = ({text}) => {
+const MenuLink = ({ text }) => {
   return (
     <motion.a
       variants={menuLinkVariants}
@@ -152,9 +152,9 @@ const MenuLink = ({text}) => {
 export default FloatingBottomNav;
 
 const iconVariants = {
-  initial: {rotate: 180, opacity: 0},
-  animate: {rotate: 0, opacity: 1},
-  exit: {rotate: -180, opacity: 0},
+  initial: { rotate: 180, opacity: 0 },
+  animate: { rotate: 0, opacity: 1 },
+  exit: { rotate: -180, opacity: 0 },
 };
 
 const menuVariants = {

@@ -6,7 +6,7 @@ const NavLogin = () => {
   const navigate = useNavigate();
 
   const handleImageClick = () => {
-    navigate("/");
+    navigate("/feed");
   };
 
   return (

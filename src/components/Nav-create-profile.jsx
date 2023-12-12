@@ -13,7 +13,9 @@ const NavCreateProfile = () => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="logo-image-create-profile" onClick={handleProfileClick}>
-          <img src="images/pets.png" alt="pets-logo" className="logo-image" />
+          <a href="feed">
+            <img src="images/pets.png" alt="pets-logo" className="logo-image" />
+          </a>
         </div>
       </div>
     </nav>

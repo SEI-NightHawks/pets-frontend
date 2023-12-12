@@ -6,7 +6,7 @@ const NavUpload = () => {
   const navigate = useNavigate();
 
   const handleImageClick = () => {
-    navigate("/");
+    navigate("/feed");
   };
 
   return (
