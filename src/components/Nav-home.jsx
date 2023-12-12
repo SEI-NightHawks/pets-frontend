@@ -6,7 +6,6 @@ const NavHome = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="logo">Petstagram</div>
         <div className="logo-image">
           <a href="feed">
             <img src="images/pets.png" alt="pets-logo" className="logo-image" />
