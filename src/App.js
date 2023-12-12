@@ -18,6 +18,7 @@ import Profile from "./screens/profile/Profile.jsx";
 import NavPersonalProfile from "./components/Nav-personal-profile.jsx";
 import NavUpload from "./components/Nav-upload.jsx";
 import "./App.css";
+
 // import Bottomfooter from './components/footer/FloatingBottomNav.jsx';
 const App = () => {
   const [user, setUser] = useState(null);
@@ -68,10 +69,8 @@ const App = () => {
         <Route path="/modal" element={<NavModal />} />
         {/* <Route path="/profile" element={<Profile />} /> */}
         <Route
-          path="/personal-profile"
-          element={
-            <NavPersonalProfile setPrimaryPet={setPrimaryPet} pets={pets} />
-          }
+          path="/profile"
+          element={<Profile setPrimaryPet={setPrimaryPet} pets={pets} />}
         />
         <Route path="/upload" element={<Upload primaryPet={primaryPet} />} />
       </Routes>
