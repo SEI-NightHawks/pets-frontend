@@ -22,7 +22,7 @@ const NavFeed = () => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="logo-image-feed" onClick={handleImageClick}>
-          <a href="feed">
+          <a href="/">
             <img src="images/pets.png" alt="pets-logo" className="logo-image" />
           </a>
         </div>
