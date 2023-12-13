@@ -41,7 +41,6 @@ function Upload({ primaryPet }) {
   };
 
   return (
-
     <>
       <NavMain />
       <div className="vh-100 justify-content-center d-flex flex-column align-items-center bg-light">
