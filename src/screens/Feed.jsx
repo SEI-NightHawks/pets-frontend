@@ -1,7 +1,6 @@
-import Post from "../../components/Post/Post.jsx";
-import NavRest from "../../components/Nav-rest.jsx";
-import "./feed.css";
-import FloatingBottomNav from "../../components/footer/FloatingBottomNav.jsx";
+import Post from "../components/Post/Post.jsx";
+import NavRest from "../components/Nav-rest.jsx";
+import FloatingBottomNav from "../components/footer/FloatingBottomNav.jsx";
 
 function Feed({ posts }) {
   const sortedPosts = posts.slice().sort((a, b) => {

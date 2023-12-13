@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { login } from "../../services/users";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import NavMain from "../../components/Nav-main";
+import { signUp } from "../services/users";
+import NavMain from "../components/Nav-main";
 // import "../../tailwind/tailwind.css";
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiStar } from "react-icons/fi";
-import "../../App.css";
+import "../App.css";
 
-const Loginpage = ({ setUser }) => {
+const Signup = ({ setUser }) => {
   return (
     <div>
       <NavMain />
@@ -24,6 +24,7 @@ const Form = ({ setUser }) => {
   const [form, setForm] = useState({
     username: "",
     password: "",
+    confirmPassword: "",
   });
 
   let navigate = useNavigate();
@@ -40,7 +41,7 @@ const Form = ({ setUser }) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const userData = await login(form);
+    const userData = await signUp(form);
     setUser(userData);
 
     navigate("/feed");
@@ -61,7 +62,7 @@ const Form = ({ setUser }) => {
           variants={primaryVariants}
           className="mb-2 text-center text-4xl font-semibold"
         >
-          Login
+          Create Account
         </motion.h1>
         <motion.p variants={primaryVariants} className="mb-8 text-center">
           {/* Add text if you want */}
@@ -78,10 +79,10 @@ const Form = ({ setUser }) => {
             <input
               id="username-input"
               type="text"
-              placeholder="Enter your username"
               value={form.username}
               onChange={handleChange}
               name="username"
+              placeholder="Enter your username"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
             />
@@ -106,26 +107,26 @@ const Form = ({ setUser }) => {
             />
           </motion.div>
 
-          {/* <motion.div variants={primaryVariants} className="mb-4 w-full">
+          <motion.div variants={primaryVariants} className="mb-4 w-full">
             <label
               htmlFor="rt-password-input"
               className="mb-1 inline-block text-sm font-medium"
             >
-              Re-type Password<span className="text-red-600">*</span>
+              Confirm Password<span className="text-red-600">*</span>
             </label>
             <input
               id="rt-password-input"
               type="password"
-              placeholder="Re-type your password"
+              placeholder="Confirm your password"
               value={form.confirmPassword}
               onChange={handleChange}
               name="confirmPassword"
               className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
               required
             />
-          </motion.div> */}
+          </motion.div>
 
-          {/* <motion.div
+          <motion.div
             variants={primaryVariants}
             className="mb-4 flex w-full items-start gap-1.5"
           >
@@ -139,7 +140,7 @@ const Form = ({ setUser }) => {
               By signing up, I agree to the terms and conditions, privacy
               policy, and cookie policy
             </label>
-          </motion.div> */}
+          </motion.div>
 
           <motion.button
             variants={primaryVariants}
@@ -149,8 +150,14 @@ const Form = ({ setUser }) => {
             type="submit"
             className="mb-1.5 w-full rounded bg-indigo-600 px-4 py-2 text-center font-medium text-white transition-colors hover:bg-indigo-700"
           >
-            Login
+            Sign up
           </motion.button>
+          <motion.p variants={primaryVariants} className="text-xs">
+            Already have an account?{" "}
+            <a className="text-indigo-600 underline" href="login">
+              Sign in
+            </a>
+          </motion.p>
         </form>
       </div>
     </motion.div>
@@ -163,7 +170,7 @@ const SupplementalContent = () => {
       <img
         alt="An example image"
         src="https://www.lonetreevet.com/blog/wp-content/uploads/2017/02/LoneTree_iStock-106396236.jpg"
-        className="h-full w-full bg-white object-cover transition-all duration-500 group-hover:scale-105 group-hover:opacity-50"
+        className="h-full w-full bg-white object-contain transition-all duration-500 group-hover:scale-105 group-hover:opacity-50"
       />
 
       <div className="absolute right-2 top-4 z-10">
@@ -183,14 +190,14 @@ const SupplementalContent = () => {
           className="mb-2 text-3xl font-semibold leading-[1.25] text-white lg:text-4xl"
           variants={primaryVariants}
         >
-          Welcome to Only Pets
+          Welcome to OnlyPets
           <br />
         </motion.h2>
         <motion.p
           variants={primaryVariants}
           className="mb-6 max-w-md text-sm text-slate-300"
         >
-          Where pets have their own space
+          Unleash the Social Side of Animals!
         </motion.p>
         <div className="flex items-center gap-4"></div>
       </motion.div>
@@ -242,59 +249,4 @@ const avatarVariants = {
     opacity: 1,
   },
 };
-
-export default Loginpage;
-
-//add class name sto this jsx and then change them again in the css
-
-// const LoginPage = ({ closeModal }) => {
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   const handleLogin = () => {
-//     // Handle login auth logic here
-//     console.log('Logging in with:', username, password);
-//   };
-
-//   return (
-//     <div>
-//       <NavLogin />
-//       <div className="login-container">
-//         <h2>Login</h2>
-//         <form>
-//           <div className="form-group">
-//           <label className='user-label' htmlFor="username">
-//             Username:
-//             <input
-//               id="username"
-//               className='input-user'
-//               type="text"
-//               value={username}
-//               onChange={(e) => setUsername(e.target.value)}
-//             />
-//           </label>
-//           </div>
-//          <div className="form-group">
-//           <label className="user-label" htmlFor="password">
-//             Password:
-//             <input
-//               id="password"
-//               type="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//             />
-//           </label>
-//           </div>
-//           <button className="signup-button" type="button" onClick={handleLogin}>
-//             Login
-//           </button>
-//           <br />
-//           {/* Link to the SignUpPage component */}
-//           <Link to="/signup">Sign Up</Link>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LoginPage;
+export default Signup;
