@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getLikes, createLike, deleteLike } from "../../services/likes.js";
+import { getLikes, createLike, deleteLike } from "../services/likes.js";
 
 function Post({ post, primaryPet }) {
   const [isLiked, setIsLiked] = useState(false);
@@ -48,6 +48,7 @@ function Post({ post, primaryPet }) {
         ); // Pass both postId and petId
         if (currentPetLike) {
           await deleteLike(currentPetLike.id);
+          console.log(currentPetLike.id);
           setLikeCount((prevCount) => prevCount - 1);
         }
       } else {
@@ -60,6 +61,8 @@ function Post({ post, primaryPet }) {
       console.error("Error handling like:", error);
     }
   };
+
+  const randomNumber = Math.floor(Math.random() * 26);
 
   return (
     <div>
@@ -106,7 +109,7 @@ function Post({ post, primaryPet }) {
                     />
                   </svg>
                 </span>
-                <span>22</span>
+                <span>{randomNumber}</span>
               </div>
               <div className="flex space-x-1 items-center">
                 <span>
