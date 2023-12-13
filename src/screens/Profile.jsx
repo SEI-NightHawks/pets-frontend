@@ -95,9 +95,9 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
           {/* Buttons */}
           <div className="flex items-center space-x-4">
             <NeumorphismButton>Edit Profile</NeumorphismButton>
-            <Link to="/upload">
-              <NeumorphismButton>Post</NeumorphismButton>
-            </Link>
+            <Link to="/upload" style={{ textDecoration: 'none' }}>
+  <NeumorphismButton>Post</NeumorphismButton>
+</Link>
             <NeumorphismButton onClick={() => setOpenProfilePick((prev) => !prev)}>
               Switch Profile
             </NeumorphismButton>
