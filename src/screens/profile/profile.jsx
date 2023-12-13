@@ -23,10 +23,10 @@ const NeumorphismButton = ({ children }) => {
 
 const Profile = () => {
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-200 min-h-screen flex items-center justify-center">
     <div className="container mx-auto mt-8 bg-gray-200 p-4">
       {/* Background Container */}
-      <div className="bg-white p-8 rounded-lg shadow-lg">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full md:w-96">
 
       {/* Top Portion */}
       <div className="flex flex-col items-center justify-between mb-6">
@@ -63,7 +63,7 @@ const Profile = () => {
  <div className="text-center mb-6">
           <p className="text-lg font-semibold mb-2"></p>
           {/* Add your user's bio content here */}
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitashdjfkasdfd dfgsdfgsdfgdfgdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsd....</p>
+          <p>Lorem ipsum dolor sit amet, consectetur ading elitashdj hello </p>
         </div>
         </div>
         {/* Buttons */}
