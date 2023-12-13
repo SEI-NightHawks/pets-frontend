@@ -1,15 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
+import { signOut } from "../../services/users";
 import axios from "axios";
 
 const FloatingBottomNav = () => {
   const [open, setOpen] = useState(false);
+
+  let navigate = useNavigate();
+
   const handleLogout = async () => {
     try {
-      await axios.post("/api/logout/"); // Replace with your Django logout URL
-      window.location.href = "/";
+      await signOut();
+      navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -54,7 +58,7 @@ const FloatingBottomNav = () => {
             <CustomLink text="Message" Icon={FiUser} />
           </RouterLink>
         </div>
-        <Menu />
+        <Menu handleLogout={handleLogout} />
       </motion.nav>
     </div>
   );
@@ -116,7 +120,7 @@ const MenuButton = ({ open, setOpen }) => {
   );
 };
 
-const Menu = () => {
+const Menu = ({ handleLogout }) => {
   return (
     <motion.div
       variants={menuVariants}
@@ -130,7 +134,7 @@ const Menu = () => {
         <RouterLink to="/switchpets">
           <MenuLink text="Switch Pets" />
         </RouterLink>
-        <RouterLink to="/">
+        <RouterLink to="/" onClick={handleLogout}>
           <MenuLink text="Log Out" />
         </RouterLink>
         <RouterLink to="/">

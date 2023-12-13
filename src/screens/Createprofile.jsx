@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import NavRest from "../components/Nav-rest.jsx";
 import "../App.css";
 
-const CreateProfile = ({ user, setPets }) => {
+const CreateProfile = ({ user, setPets, setPrimaryPet }) => {
   const [petSpecies, setPetSpecies] = useState("");
   const [breed, setBreed] = useState("");
   const [age, setAge] = useState("");
@@ -27,8 +27,9 @@ const CreateProfile = ({ user, setPets }) => {
       owner: user.user.id,
     };
 
-    await createPet(newPet);
-    setPets((prevPets) => [...prevPets, newPet]);
+    const createdPet = await createPet(newPet);
+    setPets((prevPets) => [...prevPets, createdPet]);
+    setPrimaryPet(createdPet);
     navigate("/feed");
   };
 

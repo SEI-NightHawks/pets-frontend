@@ -1,7 +1,8 @@
 import FloatingBottomNav from "../components/footer/FloatingBottomNav.jsx";
 import NavRest from "../components/Nav-rest.jsx";
 import { useEffect, useState } from "react";
-import { getPost } from "../services/posts.js";
+import { getPetPosts } from "../services/posts.js";
+import { Link } from "react-router-dom";
 
 const NeumorphismButton = ({ children }) => {
   return (
@@ -23,20 +24,26 @@ const NeumorphismButton = ({ children }) => {
   );
 };
 
-function Profile({ user }) {
-  // const [userPosts, setUserPosts] = useState([]);
+function Profile({ pets, primaryPet, setPrimaryPet }) {
+  const [petPosts, setPetPosts] = useState([]);
+  const [openProfilePick, setOpenProfilePick] = useState(false);
 
-  // useEffect(() => {
-  //   fetchPosts();
-  // }, [user]);
+  useEffect(() => {
+    fetchPosts();
+  }, [primaryPet]);
 
-  // async function fetchPosts() {
-  //   if (!user) return;
-  //   const userPostsData = await getPost(user?.pet?.profile_img);
-  //   setUserPosts(userPostsData);
-  // }
+  async function fetchPosts() {
+    if (!primaryPet) return;
+    const petsPostsData = await getPetPosts(primaryPet?.id);
+    setPetPosts(petsPostsData);
+    console.log(petsPostsData);
+  }
 
-  // if (!user) return <h1>Loading...</h1>;
+  function handleProfileClick(selectedPet) {
+    setPrimaryPet(selectedPet);
+  }
+
+  if (!primaryPet) return <h1>Loading...</h1>;
 
   return (
     <div>
@@ -52,140 +59,73 @@ function Profile({ user }) {
                 <div className="w-32 h-32 rounded-full overflow-hidden">
                   {/* Add your profile picture source */}
                   <img
-                    // src={user?.pet.profile_img}
-                    // alt="/"
-                    src="https://cdn.pixabay.com/photo/2016/04/17/10/38/doberman-1334497_1280.jpg"
-                    alt="Profile"
+                    src={primaryPet?.profile_img}
+                    alt="/"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
             </div>
             {/* User Name */}
-            <p className="text-xl font-bold mb-2">Dumbledoor</p>
+            <p className="text-xl font-bold mb-2">{primaryPet.name}</p>
             {/* User Stats */}
             <ul class="hidden md:flex space-x-8 mb-4">
               <li>
-                <span class="font-semibold mb-1 mr-1">6</span>
+                <span class="font-semibold mb-1 mr-1">{petPosts.length}</span>
                 Posts
               </li>
 
               <li>
-                <span class="font-semibold mb-1 mr-1">50.5k</span>
-                Followers
+                <span class="font-semibold mb-1 mr-1">{primaryPet.age}</span>
+                Age
               </li>
               <li>
-                <span class="font-semibold mb-1 mr-1">10</span>
-                Following
+                <span class="font-semibold mb-1 mr-1">{primaryPet.gender}</span>
+                Gender
               </li>
             </ul>
             {/* Bio */}
             <div className="text-center mb-6">
               <p className="text-lg font-semibold mb-2"></p>
               {/* Add your user's bio content here */}
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing
-                elitashdjfkasdfd
-                dfgsdfgsdfgdfgdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsd....
-              </p>
+              <p>{/* save for bio */}</p>
             </div>
           </div>
           {/* Buttons */}
           <div className="flex items-center space-x-4">
             <NeumorphismButton>Edit Profile</NeumorphismButton>
-            <NeumorphismButton>Post</NeumorphismButton>
+            <Link to="/upload">
+              <NeumorphismButton>Post</NeumorphismButton>
+            </Link>
+            <button onClick={() => setOpenProfilePick((prev) => !prev)}>
+              Switch Profile
+            </button>
           </div>
+          {openProfilePick && (
+            <div>
+              {pets.map((pet) => (
+                <img
+                  src={pet.profile_img}
+                  alt={pet.name}
+                  onClick={() => handleProfileClick(pet)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
       {/* Bottom Portion - Photo Gallery */}
       <div className="grid grid-cols-3 gap-4 bg-red-500 max-w-2xl mx-auto">
-        {/* Replace the following with your photo data */}
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://cdn.pixabay.com/photo/2018/11/15/17/47/halloween-3817698_1280.jpg"
-            alt="Photo 1"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://media.istockphoto.com/id/187468574/photo/doberman-pinscher-sitting-isolated-on-white.jpg?s=612x612&w=0&k=20&c=O-j3o8qv_ejmWlEBErri3BNlVOrrJTLdf0UT7rkLthA="
-            alt="Photo 2"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://media.istockphoto.com/id/1223511966/photo/beautiful-tan-and-black-german-pinscher.jpg?s=612x612&w=0&k=20&c=8CxVvRyFA7klgRgwIKEbGInoTQhwoGoQ1kn_QgX8R_Q="
-            alt="Photo 3"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://t3.ftcdn.net/jpg/01/41/05/84/360_F_141058449_210jjcd4uVxsG7UBqPsDACWEDrS9ZOPR.jpg"
-            alt="Photo 4"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://t3.ftcdn.net/jpg/00/85/90/18/360_F_85901816_rqnXT1PW6xeMtBiIg8UmEJPZwUif9Uwr.jpg"
-            alt="Photo 5"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://static.wixstatic.com/media/e5f819_01126f3b2de9401baa38dfa9ec5676f8~mv2.jpg/v1/fill/w_960,h_637,al_c,q_85,enc_auto/Hasko%202018%20.jpg"
-            alt="Photo 6"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://media.istockphoto.com/id/182467304/photo/doberman-pinscher-dogs-outdoors-in-winter-snow-strong-intelligent-noble.jpg?s=612x612&w=0&k=20&c=XgDBQ5JWIO4-uPmK6JVEgOP-FnkA-XfXq75FPkU-Z20="
-            alt="Photo 7"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Dobermann_puppy.jpg/331px-Dobermann_puppy.jpg"
-            alt="Photo 8"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://www.pumpkin.care/wp-content/uploads/2021/03/Doberman-Hero.jpg"
-            alt="Photo 9"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/Thumbnails/breed-spotlight/doberman-pinscher.webp"
-            alt="Photo 10"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://ppg-web-external.s3.amazonaws.com/uploads/zinnia/Doberman.jpg"
-            alt="Photo 11"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative overflow-hidden rounded">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Doberman-12833551920.jpg"
-            alt="Photo 12"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        {/* Add more photo items as needed */}
+        {petPosts.map((petPost) => (
+          <div key={petPost.id} className="relative overflow-hidden rounded">
+            <img
+              src={petPost.post_image}
+              alt="pet post"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
       </div>
       <FloatingBottomNav />
     </div>

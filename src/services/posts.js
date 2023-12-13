@@ -9,6 +9,17 @@ export const getPosts = async () => {
   }
 };
 
+export const getPetPosts = async (id) => {
+  try {
+    const response = await api.get(`pet/${id}/posts/`);
+    console.log(id);
+    return response.data;
+    console.log(response.data);
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getPost = async (id) => {
   try {
     const response = await api.get(`/posts/${id}?format=json`);
