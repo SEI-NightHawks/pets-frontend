@@ -1,4 +1,4 @@
-import Post from "../components/Post/Post.jsx";
+import Post from "../components/Post.jsx";
 import NavRest from "../components/Nav-rest.jsx";
 import FloatingBottomNav from "../components/footer/FloatingBottomNav.jsx";
 
