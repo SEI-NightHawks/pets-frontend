@@ -1,5 +1,5 @@
-import NavHome from "../../components/Nav-home.jsx";
-import FloatingBottomNav from "../../components/footer/FloatingBottomNav.jsx";
+import NavHome from "../components/Nav-home.jsx";
+import FloatingBottomNav from "../components/footer/FloatingBottomNav.jsx";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
