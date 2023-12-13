@@ -40,56 +40,68 @@ function Upload({ primaryPet }) {
     navigate("/feed");
   };
 
+  const backgroundImageUrl =
+    "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZG9ncyUyMGFuZCUyMGNhdHN8ZW58MHx8MHx8fDA%3D";
   return (
     <>
-      <NavMain />
-      <div className="vh-100 justify-content-center d-flex flex-column align-items-center bg-light">
-        <div className="text-center justify-center p-md-30 w-96 mt-5">
-          <div className="bg-white vh-45 p-4 p-md- rounded w-full w-md-85 -mt-64">
-            <h2 className="text-center mb-10 p-4">Upload Image</h2>
-            <input
-              type="text"
-              className="form-control mb-3"
-              placeholder="Paste image URL"
-              onChange={handleUrl}
-            />
-            <div className="progress mb-3">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-label="progressbar"
-                aria-valuenow={progressBar}
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: `${progressBar}%` }}
-              ></div>
-            </div>
-            {image && (
-              <img
-                src={image}
-                className="img-fluid mx-auto mt-3"
-                alt="Uploaded"
-                style={{ maxHeight: "300px" }}
-              />
-            )}
-            <input
-              type="text"
-              className="form-control mt-3"
-              placeholder="Caption"
-              value={content}
-              onChange={handleContent}
-            />
-            <button className="btn custom-btn mt-3" onClick={handlePost}>
-              Post
-            </button>
-            {caption && (
-              <div className="mt-3">
-                <strong>Caption:</strong> {caption}
-              </div>
-            )}
-            <FloatingBottomNav />
-          </div>
+      <section
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></section>
 
+      <div className="relative z-10">
+        <NavMain />
+        <div className="vh-100 justify-content-center d-flex flex-column align-items-center bg-transparent">
+          <div className="text-center justify-center p-md-30 w-96 mt-5">
+            <div className="bg-white vh-45 p-4 p-md- rounded w-full w-md-85 -mt-64 opacity-80 border border-2 border-gray-300">
+              <h2 className="text-center mb-10 p-4">Upload Image</h2>
+              <input
+                type="text"
+                className="form-control mb-3"
+                placeholder="Paste image URL"
+                onChange={handleUrl}
+              />
+              <div className="progress mb-3">
+                <div
+                  className="progress-bar progress-bar-striped progress-bar-animated"
+                  role="progressbar"
+                  aria-label="progressbar"
+                  aria-valuenow={progressBar}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style={{ width: `${progressBar}%` }}
+                ></div>
+              </div>
+              {image && (
+                <img
+                  src={image}
+                  className="img-fluid mx-auto mt-3"
+                  alt="Uploaded"
+                  style={{ maxHeight: "300px" }}
+                />
+              )}
+              <input
+                type="text"
+                className="form-control mt-3"
+                placeholder="Caption"
+                value={content}
+                onChange={handleContent}
+              />
+              <button className="btn custom-btn mt-3" onClick={handlePost}>
+                Post
+              </button>
+              {caption && (
+                <div className="mt-3">
+                  <strong>Caption:</strong> {caption}
+                </div>
+              )}
+              <FloatingBottomNav />
+            </div>
+          </div>
         </div>
       </div>
     </>
