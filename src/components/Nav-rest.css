@@ -16,14 +16,14 @@
 
 .logo-image-feed {
   width: 95px;
-  margin-left: 660px;
+  margin-left: 690px;
 }
 
 .search-container {
   display: flex;
   align-items: center;
   position: absolute;
-  margin-left: 990px;
+  margin-left: 1200px;
 }
 
 .search-container input {
