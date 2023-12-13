@@ -1,5 +1,7 @@
 import FloatingBottomNav from "../components/footer/FloatingBottomNav.jsx";
 import NavRest from "../components/Nav-rest.jsx";
+import { useEffect, useState } from "react";
+import { getPost } from "../services/posts.js";
 
 const NeumorphismButton = ({ children }) => {
   return (
@@ -21,7 +23,21 @@ const NeumorphismButton = ({ children }) => {
   );
 };
 
-const Profile = () => {
+function Profile({ user }) {
+  // const [userPosts, setUserPosts] = useState([]);
+
+  // useEffect(() => {
+  //   fetchPosts();
+  // }, [user]);
+
+  // async function fetchPosts() {
+  //   if (!user) return;
+  //   const userPostsData = await getPost(user?.pet?.profile_img);
+  //   setUserPosts(userPostsData);
+  // }
+
+  // if (!user) return <h1>Loading...</h1>;
+
   return (
     <div>
       <NavRest />
@@ -36,6 +52,8 @@ const Profile = () => {
                 <div className="w-32 h-32 rounded-full overflow-hidden">
                   {/* Add your profile picture source */}
                   <img
+                    // src={user?.pet.profile_img}
+                    // alt="/"
                     src="https://cdn.pixabay.com/photo/2016/04/17/10/38/doberman-1334497_1280.jpg"
                     alt="Profile"
                     className="w-full h-full object-cover"
@@ -172,6 +190,6 @@ const Profile = () => {
       <FloatingBottomNav />
     </div>
   );
-};
+}
 
 export default Profile;
