@@ -1,15 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
-import axios from "axios";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { FiUpload, FiMenu, FiHome, FiX, FiUser, FiSend } from "react-icons/fi";
+import { signOut } from "../../services/users";
+import api from "../../services/apiconfig.js";
 
-const FloatingBottomNav = () => {
+
+const FloatingBottomNav = ({ userId }) => {
   const [open, setOpen] = useState(false);
+
+  let navigate = useNavigate();
+
   const handleLogout = async () => {
     try {
-      await axios.post("/api/logout/"); // Replace with your Django logout URL
-      window.location.href = "/";
+      await signOut();
+      navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -22,9 +27,9 @@ const FloatingBottomNav = () => {
       )
     ) {
       try {
-        await axios.delete("/api/delete_account/");
+        await api.delete(`/users/delete/${userId}/`);
+        signOut();
         alert("Your account has been successfully deleted.");
-        window.location.href = "/";
       } catch (error) {
         console.error("Account deletion failed:", error);
         alert("There was a problem deleting your account. Please try again.");
@@ -37,7 +42,7 @@ const FloatingBottomNav = () => {
       <motion.nav
         animate={open ? "open" : "closed"}
         initial="closed"
-        className="bg-white text-black shadow-lg flex items-center"
+        className="bg-amber-50 text-black shadow-lg flex items-center rounded-lg"
       >
         <MenuButton setOpen={setOpen} open={open} />
         <div className="flex gap-3">
@@ -51,10 +56,11 @@ const FloatingBottomNav = () => {
             <CustomLink text="Profile" Icon={FiUser} />
           </RouterLink>
           <RouterLink to="/profile">
-            <CustomLink text="Message" Icon={FiUser} />
+            <CustomLink text="Message" Icon={FiSend} />
           </RouterLink>
         </div>
-        <Menu />
+        <Menu handleLogout={handleLogout} />
+        <Menu handleDeleteAccount={handleDeleteAccount} />
       </motion.nav>
     </div>
   );
@@ -77,7 +83,7 @@ const MenuButton = ({ open, setOpen }) => {
   return (
     <div
       onClick={() => setOpen((pv) => !pv)}
-      className="text-xl font-bold h-full bg-black text-white"
+      className="text-xl font-bold h-full bg-black text-white rounded-lg"
     >
       <motion.button
         whileHover={{ scale: 1.3 }}
@@ -116,7 +122,7 @@ const MenuButton = ({ open, setOpen }) => {
   );
 };
 
-const Menu = () => {
+const Menu = ({ handleDeleteAccount, handleLogout }) => {
   return (
     <motion.div
       variants={menuVariants}
@@ -130,10 +136,10 @@ const Menu = () => {
         <RouterLink to="/switchpets">
           <MenuLink text="Switch Pets" />
         </RouterLink>
-        <RouterLink to="/">
+        <RouterLink to="/" onClick={handleLogout}>
           <MenuLink text="Log Out" />
         </RouterLink>
-        <RouterLink to="/">
+        <RouterLink to="/" onClick={handleDeleteAccount}>
           <MenuLink text="Delete Account" />
         </RouterLink>
       </div>
