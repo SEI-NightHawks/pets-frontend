@@ -30,8 +30,8 @@ const Home = ({ posts }) => {
             Snouts, Whiskers, Feathers, and Fins: All Welcome Here!
           </p>
           <Link to="/signup">
-            <button className="bg-olive-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
-              Sign Up
+            <button className="bg-indigo-500 text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+              Explore
             </button>
           </Link>
         </div>

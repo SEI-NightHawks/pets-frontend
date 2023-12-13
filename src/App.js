@@ -50,16 +50,28 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
-        <Route path="/feed" element={<Feed posts={posts} />} />
+        <Route path="/feed" element={<Feed posts={posts} user={user} />} />
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/signup" element={<Signuppage setUser={setUser} />} />
         <Route
           path="/createprofile"
-          element={<Createprofile user={user} setPets={setPets} />}
+          element={
+            <Createprofile
+              user={user}
+              setPets={setPets}
+              setPrimaryPet={setPrimaryPet}
+            />
+          }
         />
         <Route
           path="/profile"
-          element={<Profile setPrimaryPet={setPrimaryPet} pets={pets} />}
+          element={
+            <Profile
+              primaryPet={primaryPet}
+              setPrimaryPet={setPrimaryPet}
+              pets={pets}
+            />
+          }
         />
         <Route path="/upload" element={<Upload primaryPet={primaryPet} />} />
         <Route path="/development" element={<Development />} />
