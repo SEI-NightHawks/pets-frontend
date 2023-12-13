@@ -2,19 +2,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
-import axios from "axios";
+import { signOut } from "../../services/users";
 import api from "../../services/apiconfig.js";
 
 const FloatingBottomNav = ({ userId }) => {
   const [open, setOpen] = useState(false);
-  const handleLogout = async () => {
-    try {
-      await axios.post("/api/logout/"); // Replace with your Django logout URL
-      window.location.href = "/";
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     await axios.post("/api/logout/"); // Replace with your Django logout URL
+  //     window.location.href = "/";
+  //   } catch (error) {
+  //     console.error("Logout failed:", error);
+  //   }
+  // };
 
   const handleDeleteAccount = async () => {
     if (
@@ -24,6 +24,7 @@ const FloatingBottomNav = ({ userId }) => {
     ) {
       try {
         await api.delete(`/users/delete/${userId}/`);
+        signOut();
         alert("Your account has been successfully deleted.");
       } catch (error) {
         console.error("Account deletion failed:", error);
