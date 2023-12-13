@@ -89,6 +89,7 @@ function Upload({ primaryPet }) {
             )}
             <FloatingBottomNav />
           </div>
+
         </div>
       </div>
     </>
