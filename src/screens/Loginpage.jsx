@@ -41,9 +41,13 @@ const Form = ({ setUser }) => {
     e.preventDefault();
 
     const userData = await login(form);
-    setUser(userData);
-
-    navigate("/feed");
+    if (userData) {
+      setUser(userData);
+      navigate("/feed");
+    } else {
+      setUser(null);
+      alert("User doesn't exist");
+    }
   }
 
   return (

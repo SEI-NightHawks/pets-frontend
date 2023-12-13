@@ -15,7 +15,7 @@ function Feed({ posts, user }) {
           <Post key={post.id} post={post} />
         ))}
       </div>
-      <FloatingBottomNav userId={user.user.id} />
+      <FloatingBottomNav userId={user?.user.id} />
     </div>
   );
 }
