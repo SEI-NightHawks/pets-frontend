@@ -47,87 +47,91 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
 
   return (
     <div>
-      <NavRest />
-      <div className="bg-gray-200">
-        <div className="container mx-auto mt-8 bg-gray-200 p-4">
-          {/* Background Container */}
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            {/* Top Portion */}
-            <div className="flex flex-col items-center justify-between mb-6">
-              {/* Profile Picture */}
-              <div className="flex-shrink-0 mb-4">
-                <div className="w-32 h-32 rounded-full overflow-hidden">
-                  {/* Add your profile picture source */}
-                  <img
-                    src={primaryPet?.profile_img}
-                    alt="/"
-                    className="w-full h-full object-cover"
-                  />
+      <div className="mb-20">
+        <NavRest />
+        <div className="bg-gray-200">
+          <div className="container mx-auto mt-8 bg-gray-200 p-4">
+            {/* Background Container */}
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              {/* Top Portion */}
+              <div className="flex flex-col items-center justify-between mb-6">
+                {/* Profile Picture */}
+                <div className="flex-shrink-0 mb-4">
+                  <div className="w-32 h-32 rounded-full overflow-hidden">
+                    {/* Add your profile picture source */}
+                    <img
+                      src={primaryPet?.profile_img}
+                      alt="/"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* User Name */}
-            <p className="text-xl font-bold mb-2">{primaryPet.name}</p>
-            {/* User Stats */}
-            <ul class="hidden md:flex space-x-8 mb-4">
-              <li>
-                <span class="font-semibold mb-1 mr-1">{petPosts.length}</span>
-                Posts
-              </li>
+              {/* User Name */}
+              <p className="text-xl font-bold mb-2">{primaryPet.name}</p>
+              {/* User Stats */}
+              <ul class="hidden md:flex space-x-8 mb-4">
+                <li>
+                  <span class="font-semibold mb-1 mr-1">{petPosts.length}</span>
+                  Posts
+                </li>
 
-              <li>
-                <span class="font-semibold mb-1 mr-1">{primaryPet.age}</span>
-                Age
-              </li>
-              <li>
-                <span class="font-semibold mb-1 mr-1">{primaryPet.gender}</span>
-                Gender
-              </li>
-            </ul>
-            {/* Bio */}
-            <div className="text-center mb-6">
-              <p className="text-lg font-semibold mb-2"></p>
-              {/* Add your user's bio content here */}
-              <p>{/* save for bio */}</p>
+                <li>
+                  <span class="font-semibold mb-1 mr-1">{primaryPet.age}</span>
+                  Age
+                </li>
+                <li>
+                  <span class="font-semibold mb-1 mr-1">
+                    {primaryPet.gender}
+                  </span>
+                  Gender
+                </li>
+              </ul>
+              {/* Bio */}
+              <div className="text-center mb-6">
+                <p className="text-lg font-semibold mb-2"></p>
+                {/* Add your user's bio content here */}
+                <p>{/* save for bio */}</p>
+              </div>
             </div>
-          </div>
-          {/* Buttons */}
-          <div className="flex items-center space-x-4">
-            <NeumorphismButton>Edit Profile</NeumorphismButton>
-            <Link to="/upload">
-              <NeumorphismButton>Post</NeumorphismButton>
-            </Link>
-            <button onClick={() => setOpenProfilePick((prev) => !prev)}>
-              Switch Profile
-            </button>
-          </div>
-          {openProfilePick && (
-            <div>
-              {pets.map((pet) => (
-                <img
-                  src={pet.profile_img}
-                  alt={pet.name}
-                  onClick={() => handleProfileClick(pet)}
-                />
-              ))}
+            {/* Buttons */}
+            <div className="flex items-center space-x-4">
+              <NeumorphismButton>Edit Profile</NeumorphismButton>
+              <Link to="/upload">
+                <NeumorphismButton>Post</NeumorphismButton>
+              </Link>
+              <button onClick={() => setOpenProfilePick((prev) => !prev)}>
+                Switch Profile
+              </button>
             </div>
-          )}
+            {openProfilePick && (
+              <div>
+                {pets.map((pet) => (
+                  <img
+                    src={pet.profile_img}
+                    alt={pet.name}
+                    onClick={() => handleProfileClick(pet)}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Bottom Portion - Photo Gallery */}
-      <div className="grid grid-cols-3 gap-4 bg-red-500 max-w-2xl mx-auto">
-        {petPosts.map((petPost) => (
-          <div key={petPost.id} className="relative overflow-hidden rounded">
-            <img
-              src={petPost.post_image}
-              alt="pet post"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        ))}
+        {/* Bottom Portion - Photo Gallery */}
+        <div className="grid grid-cols-3 gap-4 bg-red-500 max-w-2xl mx-auto pb-4">
+          {petPosts.map((petPost) => (
+            <div key={petPost.id} className="relative overflow-hidden rounded">
+              <img
+                src={petPost.post_image}
+                alt="pet post"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+        <FloatingBottomNav />
       </div>
-      <FloatingBottomNav />
     </div>
   );
 }
