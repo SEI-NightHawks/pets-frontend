@@ -9,10 +9,13 @@ const getToken = () => {
 
 const api = axios.create({
   baseURL:
-    process.env.NODE_ENV === "production" ? "" : "http://127.0.0.1:8000/api/",
+    process.env.NODE_ENV === "production"
+      ? "https://onlypets-api-6c2ffb07f9e5.herokuapp.com/api/"
+      : "https://onlypets-api-6c2ffb07f9e5.herokuapp.com/api/",
 });
+// 127.0.0.1:8000/api/
 
-api.interceptors.request.use(
+http: api.interceptors.request.use(
   async function (config) {
     const token = await getToken();
     if (token) {
