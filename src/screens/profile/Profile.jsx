@@ -1,9 +1,33 @@
 import React from 'react';
 import FloatingBottomNav from '../../components/footer/FloatingBottomNav';
 
+const NeumorphismButton = ({ children }) => {
+  return (
+    <button
+      className={`
+        px-4 py-2 rounded-full 
+        flex items-center gap-2 
+        text-slate-500
+        shadow-[-5px_-5px_10px_rgba(255,_255,_255,_0.8),_5px_5px_10px_rgba(0,_0,_0,_0.25)]
+        
+        transition-all
+
+        hover:shadow-[-1px_-1px_5px_rgba(255,_255,_255,_0.6),_1px_1px_5px_rgba(0,_0,_0,_0.3),inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)]
+        hover:text-violet-500
+    `}
+    >
+      {children}
+    </button>
+  );
+};
+
 const Profile = () => {
   return (
-    <div className="container mx-auto mt-8">
+    <div className="bg-gray-200">
+    <div className="container mx-auto mt-8 bg-gray-200 p-4">
+      {/* Background Container */}
+      <div className="bg-white p-8 rounded-lg shadow-lg">
+
       {/* Top Portion */}
       <div className="flex flex-col items-center justify-between mb-6">
         {/* Profile Picture */}
@@ -41,15 +65,13 @@ const Profile = () => {
           {/* Add your user's bio content here */}
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitashdjfkasdfd dfgsdfgsdfgdfgdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsd....</p>
         </div>
+        </div>
         {/* Buttons */}
         <div className="flex items-center space-x-4">
-          <button className="bg-blue-500 text-white px-3 py-2 rounded">
-            Edit Profile
-          </button>
-          <button className="bg-green-500 text-white px-3 py-2 rounded">
-            Post
-          </button>
+        <NeumorphismButton>Edit Profile</NeumorphismButton>
+          <NeumorphismButton>Post</NeumorphismButton>
         </div>
+      </div>
       </div>
 
       {/* Bottom Portion - Photo Gallery */}
@@ -143,6 +165,7 @@ const Profile = () => {
       </div>
       <FloatingBottomNav />
     </div>
+   
   );
 }; 
 
