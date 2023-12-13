@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
+import { FiUpload, FiMenu, FiHome, FiX, FiUser, FiSend } from "react-icons/fi";
 import axios from "axios";
 
 const FloatingBottomNav = () => {
@@ -37,7 +37,7 @@ const FloatingBottomNav = () => {
       <motion.nav
         animate={open ? "open" : "closed"}
         initial="closed"
-        className="bg-white text-black shadow-lg flex items-center"
+        className="bg-amber-50 text-black shadow-lg flex items-center rounded-lg"
       >
         <MenuButton setOpen={setOpen} open={open} />
         <div className="flex gap-3">
@@ -51,7 +51,7 @@ const FloatingBottomNav = () => {
             <CustomLink text="Profile" Icon={FiUser} />
           </RouterLink>
           <RouterLink to="/profile">
-            <CustomLink text="Message" Icon={FiUser} />
+            <CustomLink text="Message" Icon={FiSend} />
           </RouterLink>
         </div>
         <Menu />
@@ -77,7 +77,7 @@ const MenuButton = ({ open, setOpen }) => {
   return (
     <div
       onClick={() => setOpen((pv) => !pv)}
-      className="text-xl font-bold h-full bg-black text-white"
+      className="text-xl font-bold h-full bg-black text-white rounded-lg"
     >
       <motion.button
         whileHover={{ scale: 1.3 }}

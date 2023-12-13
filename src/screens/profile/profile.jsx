@@ -42,7 +42,7 @@ const Profile = () => {
           </div>
         </div>
      {/* User Name */}
-     <p className="text-xl font-bold mb-2">Dumbledoor</p>
+     <p className="text-xl font-bold mb-2">@Dumbledoor</p>
         {/* User Stats */}
         <ul class="hidden md:flex space-x-8 mb-4">
           <li>
@@ -63,7 +63,7 @@ const Profile = () => {
  <div className="text-center mb-6">
           <p className="text-lg font-semibold mb-2"></p>
           {/* Add your user's bio content here */}
-          <p>Lorem ipsum dolor sit amet, consectetur ading elitashdj hello </p>
+          <p>Lorem ipsum dolor sit amet, consectetur ading elitashdj s</p>
         </div>
         </div>
         {/* Buttons */}
