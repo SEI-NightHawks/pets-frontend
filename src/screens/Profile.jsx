@@ -1,6 +1,5 @@
-import React from "react";
-import FloatingBottomNav from "../../components/footer/FloatingBottomNav";
-import NavRest from "../../components/Nav-rest.jsx";
+import FloatingBottomNav from "../components/footer/FloatingBottomNav.jsx";
+import NavRest from "../components/Nav-rest.jsx";
 
 const NeumorphismButton = ({ children }) => {
   return (
