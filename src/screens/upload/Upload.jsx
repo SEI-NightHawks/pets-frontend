@@ -44,9 +44,9 @@ function Upload({ primaryPet }) {
     <>
       <NavMain />
       <div className="vh-100 justify-content-center d-flex flex-column align-items-center bg-light">
-        <div className="text-center justify-center p-md-30 w-80">
-          <div className="bg-white vh-100 p-3 p-md-5 rounded w-100 w-md-75">
-            <h2 className="text-center mb-10 p-3">Upload Image</h2>
+        <div className="text-center justify-center p-md-30 w-96 mt-5">
+          <div className="bg-white vh-45 p-4 p-md- rounded w-full w-md-85 -mt-64">
+            <h2 className="text-center mb-10 p-4">Upload Image</h2>
             <input
               type="text"
               className="form-control mb-3"
