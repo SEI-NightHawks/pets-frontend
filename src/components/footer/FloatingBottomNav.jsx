@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
 import axios from "axios";
+import api from "../../services/apiconfig.js";
 
-const FloatingBottomNav = () => {
+const FloatingBottomNav = ({ userId }) => {
   const [open, setOpen] = useState(false);
   const handleLogout = async () => {
     try {
@@ -22,9 +23,8 @@ const FloatingBottomNav = () => {
       )
     ) {
       try {
-        await axios.delete("/api/delete_account/");
+        await api.delete(`/users/delete/${userId}/`);
         alert("Your account has been successfully deleted.");
-        window.location.href = "/";
       } catch (error) {
         console.error("Account deletion failed:", error);
         alert("There was a problem deleting your account. Please try again.");
@@ -54,7 +54,7 @@ const FloatingBottomNav = () => {
             <CustomLink text="Message" Icon={FiUser} />
           </RouterLink>
         </div>
-        <Menu />
+        <Menu handleDeleteAccount={handleDeleteAccount} />
       </motion.nav>
     </div>
   );
@@ -116,7 +116,7 @@ const MenuButton = ({ open, setOpen }) => {
   );
 };
 
-const Menu = () => {
+const Menu = ({ handleDeleteAccount }) => {
   return (
     <motion.div
       variants={menuVariants}
@@ -133,7 +133,7 @@ const Menu = () => {
         <RouterLink to="/">
           <MenuLink text="Log Out" />
         </RouterLink>
-        <RouterLink to="/">
+        <RouterLink to="/" onClick={handleDeleteAccount}>
           <MenuLink text="Delete Account" />
         </RouterLink>
       </div>
