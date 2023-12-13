@@ -1,5 +1,6 @@
-import React from 'react';
-import FloatingBottomNav from '../../components/footer/FloatingBottomNav';
+import React from "react";
+import FloatingBottomNav from "../../components/footer/FloatingBottomNav";
+import NavRest from "../../components/Nav-rest.jsx";
 
 const NeumorphismButton = ({ children }) => {
   return (
@@ -23,55 +24,61 @@ const NeumorphismButton = ({ children }) => {
 
 const Profile = () => {
   return (
-    <div className="bg-gray-200">
-    <div className="container mx-auto mt-8 bg-gray-200 p-4">
-      {/* Background Container */}
-      <div className="bg-white p-8 rounded-lg shadow-lg">
+    <div>
+      <NavRest />
+      <div className="bg-gray-200">
+        <div className="container mx-auto mt-8 bg-gray-200 p-4">
+          {/* Background Container */}
+          <div className="bg-white p-8 rounded-lg shadow-lg">
+            {/* Top Portion */}
+            <div className="flex flex-col items-center justify-between mb-6">
+              {/* Profile Picture */}
+              <div className="flex-shrink-0 mb-4">
+                <div className="w-32 h-32 rounded-full overflow-hidden">
+                  {/* Add your profile picture source */}
+                  <img
+                    src="https://cdn.pixabay.com/photo/2016/04/17/10/38/doberman-1334497_1280.jpg"
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            {/* User Name */}
+            <p className="text-xl font-bold mb-2">Dumbledoor</p>
+            {/* User Stats */}
+            <ul class="hidden md:flex space-x-8 mb-4">
+              <li>
+                <span class="font-semibold mb-1 mr-1">6</span>
+                Posts
+              </li>
 
-      {/* Top Portion */}
-      <div className="flex flex-col items-center justify-between mb-6">
-        {/* Profile Picture */}
-        <div className="flex-shrink-0 mb-4">
-          <div className="w-32 h-32 rounded-full overflow-hidden">
-            {/* Add your profile picture source */}
-            <img
-              src="https://cdn.pixabay.com/photo/2016/04/17/10/38/doberman-1334497_1280.jpg"
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
+              <li>
+                <span class="font-semibold mb-1 mr-1">50.5k</span>
+                Followers
+              </li>
+              <li>
+                <span class="font-semibold mb-1 mr-1">10</span>
+                Following
+              </li>
+            </ul>
+            {/* Bio */}
+            <div className="text-center mb-6">
+              <p className="text-lg font-semibold mb-2"></p>
+              {/* Add your user's bio content here */}
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing
+                elitashdjfkasdfd
+                dfgsdfgsdfgdfgdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsd....
+              </p>
+            </div>
+          </div>
+          {/* Buttons */}
+          <div className="flex items-center space-x-4">
+            <NeumorphismButton>Edit Profile</NeumorphismButton>
+            <NeumorphismButton>Post</NeumorphismButton>
           </div>
         </div>
-     {/* User Name */}
-     <p className="text-xl font-bold mb-2">Dumbledoor</p>
-        {/* User Stats */}
-        <ul class="hidden md:flex space-x-8 mb-4">
-          <li>
-            <span class="font-semibold mb-1 mr-1">6</span>
-            Posts
-          </li>
-
-          <li>
-            <span class="font-semibold mb-1 mr-1">50.5k</span>
-            Followers
-          </li>
-          <li>
-            <span class="font-semibold mb-1 mr-1">10</span>
-            Following
-          </li>
-        </ul>
- {/* Bio */}
- <div className="text-center mb-6">
-          <p className="text-lg font-semibold mb-2"></p>
-          {/* Add your user's bio content here */}
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitashdjfkasdfd dfgsdfgsdfgdfgdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsd....</p>
-        </div>
-        </div>
-        {/* Buttons */}
-        <div className="flex items-center space-x-4">
-        <NeumorphismButton>Edit Profile</NeumorphismButton>
-          <NeumorphismButton>Post</NeumorphismButton>
-        </div>
-      </div>
       </div>
 
       {/* Bottom Portion - Photo Gallery */}
@@ -165,17 +172,10 @@ const Profile = () => {
       </div>
       <FloatingBottomNav />
     </div>
-   
   );
-}; 
+};
 
 export default Profile;
-
-
-
-
-
-
 
 // import React from "react";
 // import "./profile.css"; // Ensure this path points to your CSS file
