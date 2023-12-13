@@ -2,7 +2,7 @@ import Post from "../components/Post/Post.jsx";
 import NavRest from "../components/Nav-rest.jsx";
 import FloatingBottomNav from "../components/footer/FloatingBottomNav.jsx";
 
-function Feed({ posts }) {
+function Feed({ posts, primaryPet }) {
   const sortedPosts = posts.slice().sort((a, b) => {
     return new Date(b.created_at) - new Date(a.created_at);
   });
@@ -12,7 +12,7 @@ function Feed({ posts }) {
       <NavRest />
       <div>
         {sortedPosts.map((post) => (
-          <Post key={post.id} post={post} />
+          <Post key={post.id} post={post} primaryPet={primaryPet} />
         ))}
       </div>
       <FloatingBottomNav />

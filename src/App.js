@@ -50,7 +50,10 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
-        <Route path="/feed" element={<Feed posts={posts} />} />
+        <Route
+          path="/feed"
+          element={<Feed posts={posts} primaryPet={primaryPet} />}
+        />
         <Route path="/login" element={<LoginPage setUser={setUser} />} />
         <Route path="/signup" element={<Signuppage setUser={setUser} />} />
         <Route
