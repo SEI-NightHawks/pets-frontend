@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getLikes, createLike, deleteLike } from "../../services/likes.js";
+import { getLikes, createLike, deleteLike } from "../services/likes.js";
 
 function Post({ post, primaryPet }) {
   const [isLiked, setIsLiked] = useState(false);
