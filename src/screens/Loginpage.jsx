@@ -105,42 +105,6 @@ const Form = ({ setUser }) => {
               required
             />
           </motion.div>
-
-          {/* <motion.div variants={primaryVariants} className="mb-4 w-full">
-            <label
-              htmlFor="rt-password-input"
-              className="mb-1 inline-block text-sm font-medium"
-            >
-              Re-type Password<span className="text-red-600">*</span>
-            </label>
-            <input
-              id="rt-password-input"
-              type="password"
-              placeholder="Re-type your password"
-              value={form.confirmPassword}
-              onChange={handleChange}
-              name="confirmPassword"
-              className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-              required
-            />
-          </motion.div> */}
-
-          {/* <motion.div
-            variants={primaryVariants}
-            className="mb-4 flex w-full items-start gap-1.5"
-          >
-            <input
-              type="checkbox"
-              id="terms-checkbox"
-              className="h-4 w-4 accent-indigo-600"
-              required
-            />
-            <label htmlFor="terms-checkbox" className="text-xs">
-              By signing up, I agree to the terms and conditions, privacy
-              policy, and cookie policy
-            </label>
-          </motion.div> */}
-
           <motion.button
             variants={primaryVariants}
             whileTap={{
@@ -244,57 +208,3 @@ const avatarVariants = {
 };
 
 export default Loginpage;
-
-//add class name sto this jsx and then change them again in the css
-
-// const LoginPage = ({ closeModal }) => {
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   const handleLogin = () => {
-//     // Handle login auth logic here
-//     console.log('Logging in with:', username, password);
-//   };
-
-//   return (
-//     <div>
-//       <NavLogin />
-//       <div className="login-container">
-//         <h2>Login</h2>
-//         <form>
-//           <div className="form-group">
-//           <label className='user-label' htmlFor="username">
-//             Username:
-//             <input
-//               id="username"
-//               className='input-user'
-//               type="text"
-//               value={username}
-//               onChange={(e) => setUsername(e.target.value)}
-//             />
-//           </label>
-//           </div>
-//          <div className="form-group">
-//           <label className="user-label" htmlFor="password">
-//             Password:
-//             <input
-//               id="password"
-//               type="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//             />
-//           </label>
-//           </div>
-//           <button className="signup-button" type="button" onClick={handleLogin}>
-//             Login
-//           </button>
-//           <br />
-//           {/* Link to the SignUpPage component */}
-//           <Link to="/signup">Sign Up</Link>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default LoginPage;
