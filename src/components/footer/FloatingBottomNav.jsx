@@ -5,6 +5,7 @@ import { FiUpload, FiMenu, FiHome, FiX, FiUser } from "react-icons/fi";
 import { signOut } from "../../services/users";
 import api from "../../services/apiconfig.js";
 
+
 const FloatingBottomNav = ({ userId }) => {
   const [open, setOpen] = useState(false);
 
@@ -41,7 +42,7 @@ const FloatingBottomNav = ({ userId }) => {
       <motion.nav
         animate={open ? "open" : "closed"}
         initial="closed"
-        className="bg-white text-black shadow-lg flex items-center"
+        className="bg-amber-50 text-black shadow-lg flex items-center rounded-lg"
       >
         <MenuButton setOpen={setOpen} open={open} />
         <div className="flex gap-3">
@@ -55,7 +56,7 @@ const FloatingBottomNav = ({ userId }) => {
             <CustomLink text="Profile" Icon={FiUser} />
           </RouterLink>
           <RouterLink to="/profile">
-            <CustomLink text="Message" Icon={FiUser} />
+            <CustomLink text="Message" Icon={FiSend} />
           </RouterLink>
         </div>
         <Menu handleLogout={handleLogout} />
@@ -82,7 +83,7 @@ const MenuButton = ({ open, setOpen }) => {
   return (
     <div
       onClick={() => setOpen((pv) => !pv)}
-      className="text-xl font-bold h-full bg-black text-white"
+      className="text-xl font-bold h-full bg-black text-white rounded-lg"
     >
       <motion.button
         whileHover={{ scale: 1.3 }}
