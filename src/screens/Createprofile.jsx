@@ -182,7 +182,7 @@ const Form = ({
               </option>
               <option value="male">male</option>
               <option value="female">female</option>
-              <option value="not_specified">not specified</option>
+              <option value="not specified">not specified</option>
             </select>
           </motion.div>
 
