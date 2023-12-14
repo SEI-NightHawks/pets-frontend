@@ -12,7 +12,7 @@ const Home = ({ posts }) => {
       id: i + 1,
       src: posts[i]?.post_image || "",
     };
-    console.log(squareData[i]);
+    // console.log(squareData[i]);
   }
 
   return (
