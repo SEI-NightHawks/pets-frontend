@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+
 import { FiUpload, FiMenu, FiHome, FiX, FiUser, FiSend } from "react-icons/fi";
+
 import { signOut } from "../../services/users";
 import api from "../../services/apiconfig.js";
 
@@ -148,7 +150,10 @@ const Menu = ({ handleDeleteAccount }) => {
           Log Out
         </button>
         <RouterLink to="/" onClick={handleDeleteAccount}>
-          <MenuLink text="Delete Account" />
+          <MenuLink
+            text="Delete Account"
+            colorClasses="text-red-500 hover:text-red-700"
+          />
         </RouterLink>
       </div>
     </motion.div>
@@ -166,13 +171,13 @@ const SectionTitle = ({ text }) => {
   );
 };
 
-const MenuLink = ({ text }) => {
+const MenuLink = ({ text, colorClasses }) => {
   return (
     <motion.a
       variants={menuLinkVariants}
       href="#"
       rel="nofollow"
-      className="text-sm hover:text-indigo-500 transition-colors flex items-center gap-2"
+      className={`text-sm hover:text-indigo-500 transition-colors flex items-center gap-2 ${colorClasses}`}
     >
       {text}
     </motion.a>

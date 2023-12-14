@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+Welcome to , the ultimate social platform for pet owners to share adorable pictures of their furry friends!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+Only Pets is a web application where pet enthusiasts can showcase their pets' cuteness through pictures. Whether you have a fluffy cat, playful dog, or any other adorable pet, Only Pets is the perfect place to share and connect with fellow pet lovers.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Upload Pet Pictures:** Share your favorite pet moments by uploading images.
+- **Like and Comment:** Interact with other pet owners by liking and commenting on their pet pictures.
+- **User Profiles:** Create and customize your profile to showcase your pet's personality.
+- **Explore Feed:** Discover a variety of pets and make new furry friends.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend:** [React](https://reactjs.org/), [Redux](https://redux.js.org/), [CSS/SASS](https://sass-lang.com/)
+- **Backend:** [Node.js](https://nodejs.org/), [Express](https://expressjs.com/), [MongoDB](https://www.mongodb.com/)
+- **Authentication:** [JWT](https://jwt.io/)
+- **Image Storage:** [Amazon S3](https://aws.amazon.com/s3/)
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository: `git clone https://github.com/yourusername/petpics.git`
+2. Navigate to the project directory: `cd petpics`
+3. Install dependencies:
+   ```bash
+   npm install   # Install backend dependencies
+   cd client
+   npm install   # Install frontend dependencies
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+redux.js.orgredux.js.org
+Redux - A predictable state container for JavaScript apps. | Redux
+A predictable state container for JavaScript apps.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+nodejs.orgnodejs.org
+Node.js
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+9:20
+This is a potential Readme.md if we don't have one
