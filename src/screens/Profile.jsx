@@ -19,6 +19,7 @@ const NeumorphismButton = ({ children, onClick }) => {
         hover:shadow-[-1px_-1px_5px_rgba(255,_255,_255,_0.6),_1px_1px_5px_rgba(0,_0,_0,_0.3),inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)]
         hover:text-violet-500
     `}
+      onClick={onClick}
     >
       {children}
     </button>
@@ -42,7 +43,7 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
 
   function handleProfileClick(selectedPet) {
     setPrimaryPet(selectedPet);
-    setOpenProfilePick(false); // Close the dropdown after selecting a profile
+    setOpenProfilePick(false);
   }
 
   if (!primaryPet) return <h1>Loading...</h1>;
@@ -54,12 +55,12 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
         <div className="bg-gray-200">
           <div className="container mx-auto mt-8 bg-gray-200 p-4">
             {/* Background Container */}
-            <div className="bg-white p-8 rounded-lg shadow-lg">
+            <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center justify-center mx-auto max-w-2xl">
               {/* Top Portion */}
-              <div className="flex flex-col items-center justify-between mb-6">
+              <div className="mb-6 w-full text-center">
                 {/* Profile Picture */}
-                <div className="flex-shrink-0 mb-4">
-                  <div className="w-32 h-32 rounded-full overflow-hidden">
+                <div className="mb-4 inline-bloc">
+                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto">
                     {/* Add your profile picture source */}
                     <img
                       src={primaryPet?.profile_img}
@@ -71,67 +72,30 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
               </div>
 
             </div>
-            {/* User Name */}
-            <p className="text-xl font-bold mb-2">{primaryPet.name}</p>
-            {/* User Stats */}
-            <ul className="hidden md:flex space-x-8 mb-4">
-              <li>
-                <span className="font-semibold mb-1 mr-1">{petPosts.length}</span>
-                Posts
-              </li>
-              <li>
-                <span className="font-semibold mb-1 mr-1">{primaryPet.age}</span>
-                Age
-              </li>
-              <li>
-                <span className="font-semibold mb-1 mr-1">{primaryPet.gender}</span>
-                Gender
-              </li>
-            </ul>
-            {/* Bio */}
-            <div className="text-center mb-6">
-              <p className="text-lg font-semibold mb-2"></p>
-              {/* Add your user's bio content here */}
-              <p>{/* save for bio */}</p>
-            </div>
-          </div>
-          {/* Buttons */}
-          <div className="flex items-center space-x-4">
-            <NeumorphismButton>Edit Profile</NeumorphismButton>
-            <Link to="/upload" style={{ textDecoration: 'none' }}>
-  <NeumorphismButton>Post</NeumorphismButton>
-</Link>
-            <NeumorphismButton onClick={() => setOpenProfilePick((prev) => !prev)}>
-              Switch Profile
-            </NeumorphismButton>
-          </div>
-          {openProfilePick && (
-            <div id="dropdownUsers" className="z-10 absolute bg-white rounded-lg shadow w-60 dark:bg-gray-700 mt-2">
-              <ul className="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUsersButton">
-                {pets.map((pet) => (
-                  <li key={pet.id}>
-                    <a href="#" className="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onClick={() => handleProfileClick(pet)}>
-                      <img className="w-6 h-6 me-2 rounded-full" src={pet.profile_img} alt={pet.name} />
-                      {pet.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <Link to="/createprofile" className="flex items-center p-3 text-sm font-medium text-blue-600 border-t border-gray-200 rounded-b-lg bg-gray-50 dark:border-gray-600 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-blue-500 hover:underline">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v-6h-2zm0-8h2v-2h-2z"/>
-                </svg>
-                Add new user
+            {/* Buttons */}
+            <div className="flex justify-center items-center space-x-4 mt-8">
+              <NeumorphismButton>Edit Profile</NeumorphismButton>
+              <Link to="/upload" className="no-underline">
+                <NeumorphismButton>Post</NeumorphismButton>
               </Link>
+              <NeumorphismButton
+                onClick={() => setOpenProfilePick((prev) => !prev)}
+              >
+                Switch Profile
+              </NeumorphismButton>
             </div>
             {openProfilePick && (
-              <div>
+              <div className="grid grid-cols-3 gap-4 mt-4">
                 {pets.map((pet) => (
-                  <img
-                    src={pet.profile_img}
-                    alt={pet.name}
-                    onClick={() => handleProfileClick(pet)}
-                  />
+                  <div key={pet.id} className="text-center">
+                    <img
+                      src={pet.profile_img}
+                      alt={pet.name}
+                      className="w-24 h-24 object-cover rounded-full mx-auto cursor-pointer"
+                      onClick={() => handleProfileClick(pet)}
+                    />
+                    <p className="text-sm mt-2">{pet.name}</p>
+                  </div>
                 ))}
               </div>
             )}
@@ -139,13 +103,16 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
         </div>
 
         {/* Bottom Portion - Photo Gallery */}
-        <div className="grid grid-cols-3 gap-4 bg-red-500 max-w-2xl mx-auto pb-4">
+        <div className="grid grid-cols-3 gap-6 bg-gray-200 max-w-4xl mx-auto p-4 rounded-lg mt-8">
           {petPosts.map((petPost) => (
-            <div key={petPost.id} className="relative overflow-hidden rounded">
+            <div
+              key={petPost.id}
+              className="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out"
+            >
               <img
                 src={petPost.post_image}
                 alt="pet post"
-                className="w-full h-full object-cover"
+                className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity duration-300 ease-in-out"
               />
             </div>
           ))}
