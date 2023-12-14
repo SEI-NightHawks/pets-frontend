@@ -34,7 +34,7 @@ function Upload({ primaryPet }) {
     await createPost({
       content,
       post_image: image,
-      pet: primaryPet.id,
+      pet: primaryPet?.id,
     });
 
     navigate("/feed");
