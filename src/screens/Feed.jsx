@@ -10,7 +10,7 @@ function Feed({ posts, user, primaryPet }) {
   return (
     <div>
       <NavRest />
-      <div>
+      <div className="pb-20">
         {sortedPosts.map((post) => (
           <Post key={post.id} post={post} primaryPet={primaryPet} />
         ))}
