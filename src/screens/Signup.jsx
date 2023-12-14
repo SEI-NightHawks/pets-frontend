@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../services/users";
 import NavMain from "../components/Nav-main";
-// import "../../tailwind/tailwind.css";
 import { motion } from "framer-motion";
-import { FiArrowUpRight, FiStar } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 import "../App.css";
 
 const Signup = ({ setUser }) => {
