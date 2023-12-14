@@ -44,7 +44,7 @@ const Form = ({ setUser }) => {
     const userData = await signUp(form);
     setUser(userData);
 
-    navigate("/feed");
+    navigate("/createprofile");
   }
 
   return (

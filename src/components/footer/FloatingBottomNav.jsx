@@ -5,20 +5,19 @@ import { FiUpload, FiMenu, FiHome, FiX, FiUser, FiSend } from "react-icons/fi";
 import { signOut } from "../../services/users";
 import api from "../../services/apiconfig.js";
 
-
 const FloatingBottomNav = ({ userId }) => {
   const [open, setOpen] = useState(false);
 
   let navigate = useNavigate();
 
-  const handleLogout = async () => {
-    try {
-      await signOut();
-      navigate("/");
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     await signOut();
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.error("Logout failed:", error);
+  //   }
+  // };
 
   const handleDeleteAccount = async () => {
     if (
@@ -59,7 +58,7 @@ const FloatingBottomNav = ({ userId }) => {
             <CustomLink text="Message" Icon={FiSend} />
           </RouterLink>
         </div>
-        <Menu handleLogout={handleLogout} />
+        {/* <Menu handleLogout={handleLogout} /> */}
         <Menu handleDeleteAccount={handleDeleteAccount} />
       </motion.nav>
     </div>
@@ -122,7 +121,8 @@ const MenuButton = ({ open, setOpen }) => {
   );
 };
 
-const Menu = ({ handleDeleteAccount, handleLogout }) => {
+const Menu = ({ handleDeleteAccount }) => {
+  let navigate = useNavigate();
   return (
     <motion.div
       variants={menuVariants}
@@ -136,9 +136,17 @@ const Menu = ({ handleDeleteAccount, handleLogout }) => {
         <RouterLink to="/switchpets">
           <MenuLink text="Switch Pets" />
         </RouterLink>
-        <RouterLink to="/" onClick={handleLogout}>
+        {/* <RouterLink to="/" onClick={handleLogout}>
           <MenuLink text="Log Out" />
-        </RouterLink>
+        </RouterLink> */}
+        <button
+          onClick={() => {
+            signOut();
+            navigate("/");
+          }}
+        >
+          Log Out
+        </button>
         <RouterLink to="/" onClick={handleDeleteAccount}>
           <MenuLink text="Delete Account" />
         </RouterLink>
