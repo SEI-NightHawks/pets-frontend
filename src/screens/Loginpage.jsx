@@ -12,7 +12,7 @@ const Loginpage = ({ setUser }) => {
     <div>
       <NavMain />
       <section className="grid min-h-screen grid-cols-1 bg-slate-50 md:grid-cols-[1fr,_400px] lg:grid-cols-[1fr,_600px]">
-        <Logo />
+        {/* <Logo /> */}
         <Form setUser={setUser} />
         <SupplementalContent />
       </section>
