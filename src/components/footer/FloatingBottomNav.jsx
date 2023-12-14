@@ -1,7 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+
 import { FiUpload, FiMenu, FiHome, FiX, FiUser,FiSend } from "react-icons/fi";
+
 import { signOut } from "../../services/users";
 import api from "../../services/apiconfig.js";
 

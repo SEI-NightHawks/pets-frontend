@@ -1,22 +1,68 @@
-import { useState } from "react";
-function Post({ post }) {
-  const [isLiked, setIsLiked] = useState(false);
+import React, { useState, useEffect } from "react";
+import { getLikes, createLike, deleteLike } from "../services/likes.js";
 
-  const handleLike = async () => {
-    try {
-      if (isLiked) {
-        // await unlikePost(post.id);
-        setIsLiked(false);
-        console.log(`${post.pet} was unliked`);
-      } else {
-        // await likePost(post.id);
-        setIsLiked(true);
-        console.log(`${post.pet} was liked`);
+function Post({ post, primaryPet }) {
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+
+  useEffect(() => {
+    // Function to fetch like count from the backend
+    const fetchLikeData = async () => {
+      try {
+        const likesData = await getLikes(); // Fetch all likes for all posts or filter based on post.id
+        const postLikes = likesData.filter((like) => like.post === post.id);
+        setLikeCount(postLikes.length); // Update like count based on the fetched data
+
+        // Check if the current pet has liked the post
+        const currentPetLike = postLikes.find(
+          (like) => like.pet === primaryPet.id
+        ); // Replace primaryPet.id with actual logged-in pet ID
+        setIsLiked(currentPetLike !== undefined); // Set like state based on whether the current pet has liked the post
+      } catch (error) {
+        console.error("Error fetching like data:", error);
       }
+    };
+
+    fetchLikeData(); // Call the function when the component mounts or post.id changes
+  }, [post.id]);
+
+  const getLikeForCurrentPet = async (postId, petId) => {
+    try {
+      const likesData = await getLikes(); // Fetch all likes for all posts or filter based on postId
+      const currentPetLike = likesData.find(
+        (like) => like.post === postId && like.pet === petId
+      );
+      return currentPetLike; // Return the like data for the current pet and post
     } catch (error) {
-      console.error("Error toggling like:", error);
+      console.error("Error fetching like data for current pet:", error);
+      return null;
     }
   };
+
+  const handleLikeClick = async () => {
+    try {
+      if (isLiked) {
+        const currentPetLike = await getLikeForCurrentPet(
+          post.id,
+          primaryPet.id
+        ); // Pass both postId and petId
+        if (currentPetLike) {
+          await deleteLike(currentPetLike.id);
+          console.log(currentPetLike.id);
+          setLikeCount((prevCount) => prevCount - 1);
+        }
+      } else {
+        await createLike({ pet: primaryPet.id, post: post.id });
+        setLikeCount((prevCount) => prevCount + 1);
+        console.log("liked!");
+      }
+      setIsLiked(!isLiked);
+    } catch (error) {
+      console.error("Error handling like:", error);
+    }
+  };
+
+  const randomNumber = Math.floor(Math.random() * 26);
 
   return (
     <div>
@@ -63,15 +109,18 @@ function Post({ post }) {
                     />
                   </svg>
                 </span>
-                <span>22</span>
+                <span>{randomNumber}</span>
               </div>
-              <div class="flex space-x-1 items-center">
+              <div className="flex space-x-1 items-center">
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-7 w-7 text-red-500 hover:text-red-400 transition duration-100 cursor-pointer"
+                    className={`h-7 w-7 ${
+                      isLiked ? "text-red-500" : "text-gray-400"
+                    } hover:text-red-400 transition duration-100 cursor-pointer`}
                     viewBox="0 0 20 20"
                     fill="currentColor"
+                    onClick={handleLikeClick}
                   >
                     <path
                       fill-rule="evenodd"
@@ -80,7 +129,7 @@ function Post({ post }) {
                     />
                   </svg>
                 </span>
-                <span>20</span>
+                <span>{likeCount}</span>
               </div>
             </div>
           </div>
