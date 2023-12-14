@@ -19,7 +19,6 @@ const NeumorphismButton = ({ children, onClick }) => {
         hover:shadow-[-1px_-1px_5px_rgba(255,_255,_255,_0.6),_1px_1px_5px_rgba(0,_0,_0,_0.3),inset_-2px_-2px_5px_rgba(255,_255,_255,_1),inset_2px_2px_4px_rgba(0,_0,_0,_0.3)]
         hover:text-violet-500
     `}
-      onClick={onClick}
     >
       {children}
     </button>
@@ -46,7 +45,7 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
     setOpenProfilePick(false);
   }
 
-  if (!primaryPet) return <h1>Loading...</h1>;
+  if (!primaryPet) return <h1>Create a Pet Profile</h1>;
 
   return (
     <div>
@@ -70,7 +69,28 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
                   </div>
                 </div>
               </div>
-
+              <p className="text-xl font-bold mb-2">{primaryPet.name}</p>
+              {/* User Stats */}
+              <ul className="hidden md:flex space-x-8 mb-4">
+                <li>
+                  <span className="font-semibold mb-1 mr-1">
+                    {petPosts.length}
+                  </span>
+                  Posts
+                </li>
+                <li>
+                  <span className="font-semibold mb-1 mr-1">
+                    {primaryPet.age}
+                  </span>
+                  Age
+                </li>
+                <li>
+                  <span className="font-semibold mb-1 mr-1">
+                    {primaryPet.gender}
+                  </span>
+                  Gender
+                </li>
+              </ul>
             </div>
             {/* Buttons */}
             <div className="flex justify-center items-center space-x-4 mt-8">
