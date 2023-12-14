@@ -42,6 +42,7 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
 
   function handleProfileClick(selectedPet) {
     setPrimaryPet(selectedPet);
+    setOpenProfilePick(false);
   }
 
   if (!primaryPet) return <h1>Loading...</h1>;
@@ -108,13 +109,17 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
               </NeumorphismButton>
             </div>
             {openProfilePick && (
-              <div>
+              <div className="grid grid-cols-3 gap-4 mt-4">
                 {pets.map((pet) => (
-                  <img
-                    src={pet.profile_img}
-                    alt={pet.name}
-                    onClick={() => handleProfileClick(pet)}
-                  />
+                  <div key={pet.id} className="text-center">
+                    <img
+                      src={pet.profile_img}
+                      alt={pet.name}
+                      className="w-24 h-24 object-cover rounded-full mx-auto cursor-pointer"
+                      onClick={() => handleProfileClick(pet)}
+                    />
+                    <p className="text-sm mt-2">{pet.name}</p>
+                  </div>
                 ))}
               </div>
             )}
