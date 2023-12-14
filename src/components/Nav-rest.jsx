@@ -8,11 +8,10 @@ const NavFeed = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleImageClick = () => {
-    navigate("/"); //This should send me home but it isn't????:/
+    navigate("/");
   };
 
   const handleSearch = () => {
-    //This will send you to the searched user's profile page!!!!
     if (searchTerm.trim() !== "") {
       navigate(`/profile/${searchTerm}`);
     }
