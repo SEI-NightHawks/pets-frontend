@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const NeumorphismButton = ({ children, onClick }) => {
   return (
     <button
+      onClick={onClick}
       className={`
         px-4 py-2 rounded-full 
         flex items-center gap-2 
@@ -69,32 +70,7 @@ function Profile({ pets, primaryPet, setPrimaryPet }) {
                   </div>
                 </div>
               </div>
-              {/* User Name */}
-              <p className="text-xl font-bold mb-2">{primaryPet.name}</p>
-              {/* User Stats */}
-              <ul class="hidden md:flex space-x-8 mb-4">
-                <li>
-                  <span class="font-semibold mb-1 mr-1">{petPosts.length}</span>
-                  Posts
-                </li>
 
-                <li>
-                  <span class="font-semibold mb-1 mr-1">{primaryPet.age}</span>
-                  Age
-                </li>
-                <li>
-                  <span class="font-semibold mb-1 mr-1">
-                    {primaryPet.gender}
-                  </span>
-                  Gender
-                </li>
-              </ul>
-              {/* Bio */}
-              <div className="text-center mb-6">
-                <p className="text-lg font-semibold mb-2"></p>
-                {/* Add your user's bio content here */}
-                <p>{/* save for bio */}</p>
-              </div>
             </div>
             {/* Buttons */}
             <div className="flex justify-center items-center space-x-4 mt-8">
