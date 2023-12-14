@@ -6,33 +6,31 @@ function Post({ post, primaryPet }) {
   const [likeCount, setLikeCount] = useState(0);
 
   useEffect(() => {
-    // Function to fetch like count from the backend
     const fetchLikeData = async () => {
       try {
-        const likesData = await getLikes(); // Fetch all likes for all posts or filter based on post.id
+        const likesData = await getLikes();
         const postLikes = likesData.filter((like) => like.post === post.id);
-        setLikeCount(postLikes.length); // Update like count based on the fetched data
+        setLikeCount(postLikes.length);
 
-        // Check if the current pet has liked the post
         const currentPetLike = postLikes.find(
           (like) => like.pet === primaryPet.id
-        ); // Replace primaryPet.id with actual logged-in pet ID
-        setIsLiked(currentPetLike !== undefined); // Set like state based on whether the current pet has liked the post
+        );
+        setIsLiked(currentPetLike !== undefined);
       } catch (error) {
         console.error("Error fetching like data:", error);
       }
     };
 
-    fetchLikeData(); // Call the function when the component mounts or post.id changes
+    fetchLikeData();
   }, [post.id]);
 
   const getLikeForCurrentPet = async (postId, petId) => {
     try {
-      const likesData = await getLikes(); // Fetch all likes for all posts or filter based on postId
+      const likesData = await getLikes();
       const currentPetLike = likesData.find(
         (like) => like.post === postId && like.pet === petId
       );
-      return currentPetLike; // Return the like data for the current pet and post
+      return currentPetLike;
     } catch (error) {
       console.error("Error fetching like data for current pet:", error);
       return null;
@@ -45,7 +43,7 @@ function Post({ post, primaryPet }) {
         const currentPetLike = await getLikeForCurrentPet(
           post.id,
           primaryPet.id
-        ); // Pass both postId and petId
+        );
         if (currentPetLike) {
           await deleteLike(currentPetLike.id);
           console.log(currentPetLike.id);
